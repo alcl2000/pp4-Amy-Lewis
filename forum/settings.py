@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_summernote',
     'django.contrib.staticfiles',
-    'forum',
+    'citizen_detectives',
 ]
 
 MIDDLEWARE = [
