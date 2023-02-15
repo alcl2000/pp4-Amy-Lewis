@@ -1,7 +1,9 @@
 asgiref==3.6.0
 backports.zoneinfo==0.2.1
 dj-database-url==1.2.0
-Django==4.1.7
+Django==3.2.18
+django-summernote==0.8.20.0
 gunicorn==20.1.0
 psycopg2==2.9.5
+pytz==2022.7.1
 sqlparse==0.4.3
