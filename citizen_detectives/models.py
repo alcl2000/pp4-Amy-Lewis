@@ -16,3 +16,27 @@ class Category(models.Model):
 
     def category_desc(self):
         return self.description
+
+
+class Tag(models.Model):
+    tag_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=30, unique=True)
+    
+    class ColourOptions(models.TextChoices):
+        # options for the tag colours 
+        RED = 'RED', ('Red')
+        ORANGE = 'ORANGE', ('Orange')
+        YELLOW = 'YELLOW', ('Yellow')
+        GREEN = 'GREEN', ('Green')
+        BLUE = 'BLUE', ('Blue')
+        PURPLE = 'PURPLE', ('Purple')
+        WHITE = 'WHITE', ('White')
+        BLACK = 'BLACK', ('Black')
+    
+    tag_colour = models.CharField(max_length=6,
+                                  choices=ColourOptions.choices,
+                                  default=ColourOptions.RED,
+                                  )
+    
+    def tag(self):
+        return self.title, self.tag_colour

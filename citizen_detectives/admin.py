@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category
+from .models import Category, Tag
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -7,3 +7,8 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
     list_display = ('title',)
+
+
+@admin.register(Tag)
+class CategoryAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'tag_colour')
