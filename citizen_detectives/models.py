@@ -27,7 +27,7 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    tag_catagory = models.ForeignKey('Category', 
+    tag_category = models.ForeignKey('Category', 
                                      to_field='category_id',
                                      default=Category.get_default_pk,
                                      on_delete=models.CASCADE)
