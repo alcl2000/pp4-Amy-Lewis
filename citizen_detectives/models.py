@@ -31,6 +31,7 @@ class Tag(models.Model):
                                      to_field='category_id',
                                      default=Category.get_default_pk,
                                      on_delete=models.CASCADE)
+    
     tag_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=30, unique=True)
 
@@ -52,6 +53,9 @@ class Tag(models.Model):
     
     def tag(self):
         return self.title, self.tag_colour
+    
+    def tag_category_name(self):
+        return self.tag_category.title
 
 
 # class Post(models.Model):
