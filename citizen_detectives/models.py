@@ -19,11 +19,11 @@ class Category(models.Model):
     
     @classmethod
     def get_default_pk(cls):
-        exam, created = cls.objects.get_or_create(
+        test, created = cls.objects.get_or_create(
             title='Default Category', 
             defaults=dict(description='This is a test Category'),
         )
-        return exam.pk
+        return test.pk
 
 
 class Tag(models.Model):
@@ -56,9 +56,40 @@ class Tag(models.Model):
     
     def tag_category_name(self):
         return self.tag_category.title
+    
+    @classmethod
+    def get_default_pk(cls):
+        test_tag, created = cls.objects.get_or_create(
+            title='Default Tag'
+        )
+        return test_tag.pk
 
 
-# class Post(models.Model):
-#     post_id = models.AutoField(primary_key=True)
-#     post_category = models.ForeignKey('Category', on_delete=models.CASCADE)
-#     post_tag = models.ForeignKey('Tag', on_delete=models.)
+class Post(models.Model):
+    post_id = models.AutoField(primary_key=True)
+    slug = model.SlugField(
+                            unique=True,
+                            max_length=15
+                            )
+    # various foriegn keys
+    post_category = models.ForeignKey('Category', 
+                                      on_delete=models.CASCADE,
+                                      to_field=Category.category_id)
+    post_tag = models.ForeignKey('Tag', 
+                                 on_delete=models.SET_DEFAULT,
+                                 to_field=Tag.tag_id,
+                                 default=Tag.get_default_pk
+                                 )
+    post_author = models.ForeignKey(User,
+                                    on_delete=models.SET_NULL
+                                    )    
+    # post content
+    post_title = models.CharField(max_length=25)
+    post_content = models.TextField()
+    post_date = models.DateField(auto_now=True)
+    # user interactions
+    post_likes = models.ManyToManyField(
+                                         User,
+                                         related_name='blog_likes',
+                                         blank=True
+                                        )
