@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -67,21 +67,21 @@ class Tag(models.Model):
 
 class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
-    slug = model.SlugField(
+    slug = models.SlugField(
                             unique=True,
                             max_length=15
                             )
     # various foriegn keys
     post_category = models.ForeignKey('Category', 
                                       on_delete=models.CASCADE,
-                                      to_field=Category.category_id)
+                                      )
     post_tag = models.ForeignKey('Tag', 
                                  on_delete=models.SET_DEFAULT,
-                                 to_field=Tag.tag_id,
                                  default=Tag.get_default_pk
                                  )
     post_author = models.ForeignKey(User,
-                                    on_delete=models.SET_NULL
+                                    on_delete=models.SET_DEFAULT,
+                                    default='Anonymous'
                                     )    
     # post content
     post_title = models.CharField(max_length=25)
