@@ -11,7 +11,7 @@ class Category(models.Model):
     class Meta:
         ordering = ['category_id']
     
-    def category_name(self):
+    def __str__(self):
         return self.title
 
     def category_desc(self):
