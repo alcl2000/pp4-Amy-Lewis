@@ -1,1 +1,5 @@
-<h1>HELLO WORLD</h1>
+<h1>Category Page</h1>
+{% for category in category_list %}
+    <h2>{{category.title}}</h2>
+    <h4>{{category.description}}</h4>
+{% endfor %}
