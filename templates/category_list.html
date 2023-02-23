@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Category Page</h1>
+    <h2>Find various topics of discussion below:</h2>
     {% for category in category_list %}
         <h2>{{category.title}}</h2>
         <h4>{{category.description}}</h4>
