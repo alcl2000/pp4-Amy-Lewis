@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital@0;1&family=Libre+Franklin:ital,wght@0,400;0,600;1,400&family=Lobster+Two:wght@400;700&display=swap');
 :root{
+    --light-gray:rgb(138, 137, 137);
     --dark-gray: rgb(88, 92, 97);
+    --yellow:rgb(205, 164, 18);
     --indigo: rgb(106, 113, 178);
 }
 #bootstrap-overrides{
@@ -8,4 +11,19 @@
 }
 #bootstrap-overrides>nav{
     background-color: var(--indigo);   
+}
+.box{
+    max-width:90%;
+    margin: auto;
+    background-color: var(--light-gray);
+    text-align:center;
+    padding: 5px;
+}
+.box>h2{
+    color: var(--yellow);
+    font-family: 'Lobster Two', cursive;
+    font-size: 45px;
+}
+.left{
+    margin-left: 5rem;
 }
