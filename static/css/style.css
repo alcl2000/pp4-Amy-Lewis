@@ -1,0 +1,6 @@
+:root{
+    --indigo: rgb(106, 113, 178);
+}
+.nav-wrapper{
+    background-color: var(--indigo);
+}
