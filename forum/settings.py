@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'forum.urls'
+ROOT_URLCONF = 'citizen_detectives.urls'
 
 TEMPLATES = [
     {
