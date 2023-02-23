@@ -1,6 +1,11 @@
 :root{
+    --dark-gray: rgb(88, 92, 97);
     --indigo: rgb(106, 113, 178);
 }
-.nav-wrapper{
-    background-color: var(--indigo);
+#bootstrap-overrides{
+    background-color: var(--dark-gray)!important;
+    color: aliceblue!important;
+}
+#bootstrap-overrides>nav{
+    background-color: var(--indigo);   
 }
