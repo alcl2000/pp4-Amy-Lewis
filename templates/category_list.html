@@ -11,29 +11,8 @@
     <h3 class="mb-3 left">Or make your own:</h3>
     <div class="box">
         <h2>
-            <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#categoryAddModal">+ Add new category</a>
+            <a href="add-category/">+ Add new category</a>
         </h2>
         <h4 class="text-white">Can't find the category you want? Add your own!</h4>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="categoryAddModal" tabindex="-1" aria-labelledby="categoryAddModal" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-black">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Category</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-black">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    {{form.as_p}}
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-        </div>
-        </div>
     </div>
 {% endblock %}
