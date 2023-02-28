@@ -24,7 +24,7 @@ def add_category(request):
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(CategoryList())
+            return redirect("/categories")
         else:
             form = CategoryForm()
     return render(request, 'add_category.html', context)
