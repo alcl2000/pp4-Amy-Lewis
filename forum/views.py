@@ -9,10 +9,19 @@ class CategoryList(generic.ListView):
     model = Category
     queryset = Category.objects.order_by('-category_id')
     template_name = "category_list.html"
+    # context = {
+    #     'form': CategoryForm(),
+    # }
     # post form to create new categories
 
-    def get_context_data(self, **kwargs):
-        context = super(CategoryList, self).get_context_data(**kwargs)
-        context['form'] = CategoryForm()
-        return context
-        return HttpResponseRedirect('/categories/')
+    # def add_category(request):
+    #     if request.method == "POST":
+    #         form = CategoryForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return HttpResponse(status=204)
+    #     else:
+    #         form = MovieForm()
+    #     return render(request, 'category_list.html', {
+    #         'form': form,
+    #     })
