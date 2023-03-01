@@ -93,6 +93,16 @@ class Post(models.Model):
                                          related_name='post_likes',
                                          blank=True
                                         )
+    # class methods
+
+    class Meta:
+        ordering = ['-post_date']
+
+    def __str__(self):
+        return self.post_title
+    
+    def number_of_likes(self):
+        return self.post_likes.count()
 
 
 class Comment(models.Model):
