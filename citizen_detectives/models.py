@@ -27,7 +27,7 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    tag_category = models.ForeignKey('Category', 
+    tag_category = models.ForeignKey(Category, 
                                      to_field='category_id',
                                      default=Category.get_default_pk,
                                      on_delete=models.CASCADE)
@@ -72,10 +72,10 @@ class Post(models.Model):
                             max_length=15
                             )
     # various foriegn keys
-    post_category = models.ForeignKey('Category', 
+    post_category = models.ForeignKey(Category, 
                                       on_delete=models.CASCADE,
                                       )
-    post_tag = models.ForeignKey('Tag', 
+    post_tag = models.ForeignKey(Tag, 
                                  on_delete=models.SET_DEFAULT,
                                  default=Tag.get_default_pk
                                  )
@@ -90,6 +90,22 @@ class Post(models.Model):
     # user interactions
     post_likes = models.ManyToManyField(
                                          User,
-                                         related_name='blog_likes',
+                                         related_name='post_likes',
                                          blank=True
                                         )
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post,
+                             on_delete=models.CASCADE)
+    text = models.TextField()
+    # foriegn keys
+    comment_author = models.ForeignKey(User,
+                                       on_delete=models.SET_DEFAULT,
+                                       default='Anonymous'
+                                       )
+    # user interactions
+    comment_likes = models.ManyToManyField(User,
+                                           related_name='comment_likes',
+                                           blank=True
+                                           )
