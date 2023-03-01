@@ -51,8 +51,11 @@ class Tag(models.Model):
                                   default=ColourOptions.RED,
                                   )
     
+    def __str__(self):
+        return self.title
+
     def tag(self):
-        return self.title, self.tag_colour
+        return self.tag_colour
     
     def tag_category_name(self):
         return self.tag_category.title
