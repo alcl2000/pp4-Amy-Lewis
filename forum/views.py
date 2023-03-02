@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
 from django.views import generic, View
-from citizen_detectives.models import Category
+from citizen_detectives.models import Category, Post, Tag
 from citizen_detectives.forms import CategoryForm
 
 
@@ -29,3 +29,15 @@ def add_category(request):
             form = CategoryForm()
     return render(request, 'add_category.html', context)
 
+
+class CategoryDetailView(View):
+    def get(self, request, id, *args, **kwargs):
+        category = get_object_or_404(id=id)
+        posts = Post.filter(post_category=id).order_by('-post_date')
+        tags = Tag.filter(tag_category=id)
+        return render(request, 'category_detail.html',
+                      {
+                        'category': category,
+                        'posts': posts,
+                        'tags': tags
+                      })
