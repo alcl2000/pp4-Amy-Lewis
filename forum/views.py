@@ -1,4 +1,7 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
+from django.shortcuts import (render, 
+                              get_object_or_404, 
+                              HttpResponseRedirect, 
+                              redirect)
 from django.views import generic, View
 from citizen_detectives.models import Category, Post, Tag
 from citizen_detectives.forms import CategoryForm
