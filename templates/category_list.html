@@ -4,8 +4,10 @@
     <h2 class="mb-3 left">Find various topics of discussion below:</h2>
     {% for category in category_list %}
         <div class="box mb-3">
-            <h2>{{category.title}}</h2>
-            <h4>{{category.description}}</h4>
+            <a href="{% url 'category_detail' category.slug %}">
+                <h2>{{category.title}}</h2>
+                <h4>{{category.description}}</h4>
+            </a>
         </div>
     {% endfor %}
     <h3 class="mb-3 left">Or make your own:</h3>

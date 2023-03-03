@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+from autoslug import AutoSlugField
 # Create your models here.
 
 
 class Category(models.Model):
-    category_id = models.AutoField(primary_key=True)
+    # category id is used to link foreign keys 
+    category_id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=25, unique=True)
+    # category slug is used to generate urls, auto populates from title
+    slug = AutoSlugField(populate_from='title')
     description = models.CharField(max_length=50, unique=True)
 
     class Meta:
@@ -16,6 +21,10 @@ class Category(models.Model):
 
     def category_desc(self):
         return self.description
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
     
     @classmethod
     def get_default_pk(cls):
