@@ -34,8 +34,8 @@ def add_category(request):
 
 
 class CategoryDetailView(View):
-    def get(self, request, id, *args, **kwargs):
-        category = get_object_or_404(id=id)
+    def get(self, request, slug, *args, **kwargs):
+        category = get_object_or_404(slug=slug)
         posts = Post.filter(post_category=id).order_by('-post_date')
         tags = Tag.filter(tag_category=id)
         return render(request, 'category_detail.html',
