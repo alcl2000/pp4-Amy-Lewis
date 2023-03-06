@@ -1,0 +1,1 @@
+https://django-autoslug.readthedocs.io/en/latest/ - auto slug field
