@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+from autoslug import AutoSlugField
 # Create your models here.
 
 
 class Category(models.Model):
-    category_id = models.AutoField(primary_key=True)
+    # category id is used to link foreign keys 
+    category_id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=25, unique=True)
+    # category slug is used to generate urls, auto populates from title
+    slug = AutoSlugField(populate_from='title')
     description = models.CharField(max_length=50, unique=True)
 
     class Meta:
@@ -16,6 +21,10 @@ class Category(models.Model):
 
     def category_desc(self):
         return self.description
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
     
     @classmethod
     def get_default_pk(cls):
@@ -27,7 +36,7 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    tag_category = models.ForeignKey('Category', 
+    tag_category = models.ForeignKey(Category, 
                                      to_field='category_id',
                                      default=Category.get_default_pk,
                                      on_delete=models.CASCADE)
@@ -51,8 +60,11 @@ class Tag(models.Model):
                                   default=ColourOptions.RED,
                                   )
     
+    def __str__(self):
+        return self.title
+
     def tag(self):
-        return self.title, self.tag_colour
+        return self.tag_colour
     
     def tag_category_name(self):
         return self.tag_category.title
@@ -72,10 +84,10 @@ class Post(models.Model):
                             max_length=15
                             )
     # various foriegn keys
-    post_category = models.ForeignKey('Category', 
+    post_category = models.ForeignKey(Category, 
                                       on_delete=models.CASCADE,
                                       )
-    post_tag = models.ForeignKey('Tag', 
+    post_tag = models.ForeignKey(Tag, 
                                  on_delete=models.SET_DEFAULT,
                                  default=Tag.get_default_pk
                                  )
@@ -90,6 +102,32 @@ class Post(models.Model):
     # user interactions
     post_likes = models.ManyToManyField(
                                          User,
-                                         related_name='blog_likes',
+                                         related_name='post_likes',
                                          blank=True
                                         )
+    # class methods
+
+    class Meta:
+        ordering = ['-post_date']
+
+    def __str__(self):
+        return self.post_title
+    
+    def number_of_likes(self):
+        return self.post_likes.count()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post,
+                             on_delete=models.CASCADE)
+    text = models.TextField()
+    # foriegn keys
+    comment_author = models.ForeignKey(User,
+                                       on_delete=models.SET_DEFAULT,
+                                       default='Anonymous'
+                                       )
+    # user interactions
+    comment_likes = models.ManyToManyField(User,
+                                           related_name='comment_likes',
+                                           blank=True
+                                           )

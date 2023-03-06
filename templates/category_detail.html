@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>
+    <a href="/categories/">
+        <<= back to categories
+    </a>
+</h2>
+<h1>{{category.title}}</h1>
+{% for post in posts %}
+    <h3>{{post.post_title}}</h3>
+    <h5 class="{{post.post_tag.tag_colour}}">{{post.post_tag}}</h5>
+    <p>{{post.post_content}}</p>
+{% endfor %}
+<div>
+    {% for tag in tags %}
+    <p>{{tag.title}}</p>
+    {% endfor %}
+</div>
+{% endblock %}
