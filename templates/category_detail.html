@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<h2>
+    <a href="/categories/">
+        <<= back to categories
+    </a>
+</h2>
 <h1>{{category.title}}</h1>
 {% for post in posts %}
     <h3>{{post.post_title}}</h3>
