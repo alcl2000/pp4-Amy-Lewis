@@ -4,7 +4,22 @@
     <h2 class="mb-3 left">Find various topics of discussion below:</h2>
     {% for category in category_list %}
         <div class="box mb-3">
-            <i class="bi bi-three-dots"></i>
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                </a>
+                    <ul class="dropdown-menu">
+                    {% if user.is_admin %}
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    {% else %}
+                    <li>You must be an admin to edit/delete categories</li>
+                    {% endif %}
+                    </ul>
+              </div>
+            {% endif %}
             <a href="{% url 'category_detail' category.slug %}">
                 <h2>{{category.title}}</h2>
                 <h4>{{category.description}}</h4>
