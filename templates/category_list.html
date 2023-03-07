@@ -6,14 +6,13 @@
         <div class="box mb-3">
             {% if user.is_authenticated %}
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-three-dots"></i>
                 </a>
                     <ul class="dropdown-menu">
-                    {% if user.is_admin %}
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    {% if user.is_staff %}
+                    <li><a class="dropdown-item" href="#">Edit '{{category.title}}'?</a></li>
+                    <li><a class="dropdown-item" href="#">Delete '{{category.title}}'?</a></li>
                     {% else %}
                     <li>You must be an admin to edit/delete categories</li>
                     {% endif %}
