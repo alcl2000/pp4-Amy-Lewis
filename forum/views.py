@@ -7,15 +7,11 @@ from citizen_detectives.models import Category, Post, Tag
 from citizen_detectives.forms import CategoryForm
 
 
-# Create your views here.
+# Category CRUD functions/views
 class CategoryList(generic.ListView):
     model = Category
     queryset = Category.objects.order_by('-category_id')
     template_name = "category_list.html"
-    # context = {
-    #     'form': CategoryForm(),
-    # }
-    # post form to create new categories
 
  
 def add_category(request):
@@ -31,6 +27,12 @@ def add_category(request):
         else:
             form = CategoryForm()
     return render(request, 'add_category.html', context)
+
+
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, category_id=category_id)
+    category.delete()
+    return redirect("/categories")
 
 
 class CategoryDetailView(View):
