@@ -11,8 +11,12 @@
                 </a>
                     <ul class="dropdown-menu">
                     {% if user.is_staff %}
-                    <li><a class="dropdown-item" href="#">Edit '{{category.title}}'?</a></li>
-                    <li><a class="dropdown-item" href="#">Delete '{{category.title}}'?</a></li>
+                    <li><a class="dropdown-item" href="">
+                        Edit '{{category.title}}'?
+                    </a></li>
+                    <li><a class="dropdown-item" href="/delete/{{category.category_id}}">
+                        Delete '{{category.title}}'?
+                    </a></li>
                     {% else %}
                     <li>You must be an admin to edit/delete categories</li>
                     {% endif %}
