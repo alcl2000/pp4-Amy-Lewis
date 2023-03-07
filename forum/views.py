@@ -12,10 +12,6 @@ class CategoryList(generic.ListView):
     model = Category
     queryset = Category.objects.order_by('-category_id')
     template_name = "category_list.html"
-    # context = {
-    #     'form': CategoryForm(),
-    # }
-    # post form to create new categories
 
  
 def add_category(request):
