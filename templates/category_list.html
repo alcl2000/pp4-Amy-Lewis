@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li {% if message.tag %} class="{{message.tags}}"{% endif %} >
+            {{message}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     <h1 class="mt-4 mb-3 left">Category Page</h1>
     <h2 class="mb-3 left">Find various topics of discussion below:</h2>
     {% for category in category_list %}
@@ -11,12 +20,14 @@
                 </a>
                     <ul class="dropdown-menu">
                     {% if user.is_staff %}
-                    <li><a class="dropdown-item" href="">
+                    <li><a class="dropdown-item edit" href="">
                         Edit '{{category.title}}'?
                     </a></li>
-                    <li><a class="dropdown-item" href="/delete/{{category.category_id}}">
+                    <li>
+                        <a class="dropdown-item delete" href="/delete/{{category.category_id}}">
                         Delete '{{category.title}}'?
-                    </a></li>
+                        </a>
+                    </li>
                     {% else %}
                     <li>You must be an admin to edit/delete categories</li>
                     {% endif %}

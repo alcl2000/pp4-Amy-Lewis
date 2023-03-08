@@ -3,6 +3,7 @@ from django.shortcuts import (render,
                               HttpResponseRedirect, 
                               redirect)
 from django.views import generic, View
+from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag
 from citizen_detectives.forms import CategoryForm
 
@@ -23,6 +24,7 @@ def add_category(request):
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Category Added Successfully!')
             return redirect("/categories")
         else:
             form = CategoryForm()
@@ -32,7 +34,23 @@ def add_category(request):
 def delete_category(request, category_id):
     category = get_object_or_404(Category, category_id=category_id)
     category.delete()
+    messages.success(request, 'Category Deleted Successfully!')
     return redirect("/categories")
+
+
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, category_id=category_id)
+    if request.method == POST:
+        if request.method == 'POST':
+            form = CategoryForm(request.POST, instance=category)
+            if form.is_valid():
+                form.save()
+                return redirect('get_todo_list')
+    form = CategoryForm(instance=item)
+    context = {
+        "form": form
+    }
+    return render(request, 'todo/edit_todo.html', context)
 
 
 class CategoryDetailView(View):
