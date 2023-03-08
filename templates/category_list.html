@@ -20,7 +20,7 @@
                 </a>
                     <ul class="dropdown-menu">
                     {% if user.is_staff %}
-                    <li><a class="dropdown-item edit" href="">
+                    <li><a class="dropdown-item edit" href="/edit/{{category.category_id}}">
                         Edit '{{category.title}}'?
                     </a></li>
                     <li>
