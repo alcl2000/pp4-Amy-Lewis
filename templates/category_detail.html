@@ -12,8 +12,13 @@
     <p>{{post.post_content}}</p>
 {% endfor %}
 <div>
+    <ul>
     {% for tag in tags %}
-    <p>{{tag.title}}</p>
+    <li class="{{tag.tag_colour}}">{{tag.title}}</li>
     {% endfor %}
+    <li>
+        <a href="">+ Add New Tag</a>
+    </li>
+    </ul>
 </div>
 {% endblock %}
