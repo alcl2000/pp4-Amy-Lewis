@@ -17,8 +17,10 @@ class CategoryList(generic.ListView):
  
 def add_category(request):
     form = CategoryForm()
+    title_and_text = "Add Category"
     context = {
-        'form': form
+        'form': form,
+        "title_and_text": title_and_text
     }
     if request.method == "POST":
         form = CategoryForm(request.POST)
