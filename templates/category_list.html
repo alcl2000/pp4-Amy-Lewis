@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li {% if message.tag %} class="{{message.tags}}"{% endif %} >
+            {{message}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     <h1 class="mt-4 mb-3 left">Category Page</h1>
     <h2 class="mb-3 left">Find various topics of discussion below:</h2>
     {% for category in category_list %}
