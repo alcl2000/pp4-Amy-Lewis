@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<h2>{{title_and_text}} to {{tag.tag_category}}</h2>
 <form action="">
-    {% crsf_token %}
+    {% csrf_token %}
     {{form.as_p}}
+    <button type="submit">{{title_and_text}}</button>
 </form>
 {% endblock %}

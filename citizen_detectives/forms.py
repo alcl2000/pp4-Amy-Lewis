@@ -8,7 +8,7 @@ class CategoryForm(forms.ModelForm):
         fields = ['title', 'description']
 
 
-class TagForm(forms.ModelFrom):
+class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ['title', 'tag_colour']
