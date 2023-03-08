@@ -40,17 +40,19 @@ def delete_category(request, category_id):
 
 def edit_category(request, category_id):
     category = get_object_or_404(Category, category_id=category_id)
-    if request.method == POST:
+    if request.method == 'POST':
         if request.method == 'POST':
             form = CategoryForm(request.POST, instance=category)
             if form.is_valid():
                 form.save()
-                return redirect('get_todo_list')
-    form = CategoryForm(instance=item)
+                return redirect('/categories')
+    form = CategoryForm(instance=category)
+    title_and_text = "Edit Category"
     context = {
-        "form": form
+        "form": form,
+        "title_and_text": title_and_text
     }
-    return render(request, 'todo/edit_todo.html', context)
+    return render(request, 'add_category.html', context)
 
 
 class CategoryDetailView(View):
