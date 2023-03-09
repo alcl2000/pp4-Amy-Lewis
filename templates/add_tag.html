@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>
+    {{title_and_text}}
+    {% if view is add_tag %}
+    to
+    {% else %}
+    in
+    {% endif %}
+    {{category_title}}
+</h2>
+<form action="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">{{title_and_text}}</button>
+</form>
+{% endblock %}

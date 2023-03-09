@@ -5,7 +5,7 @@ from django.shortcuts import (render,
 from django.views import generic, View
 from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag
-from citizen_detectives.forms import CategoryForm
+from citizen_detectives.forms import CategoryForm, TagForm
 
 
 # Category CRUD functions/views
@@ -71,3 +71,27 @@ class CategoryDetailView(View):
                         'posts': posts,
                         'tags': tags
                       })
+
+# Tag CRUD functions/views
+
+
+def add_tag(request, category_id):
+    form = TagForm
+    title_and_text = 'Add Tag'
+    category_id = category_id
+    category = get_object_or_404(Category, category_id=category_id)
+    category_title = category.title
+    context = {
+        'form': form,
+        'title_and_text': title_and_text,
+        'category_title': category_title
+        }
+    if request.method == "POST":
+        form = TagForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Tag Added Successfully!')
+            return redirect("/categories")
+        else:
+            form = TagForm()
+    return render(request, 'add_tag.html', context)
