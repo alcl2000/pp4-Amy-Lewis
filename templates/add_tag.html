@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{title_and_text}} to {{tag.tag_category}}</h2>
+<h2>
+    {{title_and_text}}
+    {% if view is add_tag %}
+    to
+    {% else %}
+    in
+    {% endif %}
+    {{category_title}}
+</h2>
 <form action="post">
     {% csrf_token %}
     {{form.as_p}}

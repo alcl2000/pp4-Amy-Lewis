@@ -79,10 +79,13 @@ def add_tag(request, category_id):
     form = TagForm
     title_and_text = 'Add Tag'
     category_id = category_id
+    category = get_object_or_404(Category, category_id=category_id)
+    category_title = category.title
     context = {
         'form': form,
-        'title_and_text': title_and_text
-    }
+        'title_and_text': title_and_text,
+        'category_title': category_title
+        }
     if request.method == "POST":
         form = TagForm(request.POST)
         if form.is_valid():
