@@ -75,9 +75,10 @@ class CategoryDetailView(View):
 # Tag CRUD functions/views
 
 
-def add_tag(request):
+def add_tag(request, category_id):
     form = TagForm
     title_and_text = 'Add Tag'
+    category_id = category_id
     context = {
         'form': form,
         'title_and_text': title_and_text
