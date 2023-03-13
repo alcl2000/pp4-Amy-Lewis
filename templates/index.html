@@ -7,7 +7,11 @@
 </div>
 {% for post in post_list %}
     <div>
+        <h3>.{{post.post_category}}</h3>
+        <h4>[{{post.post_author}}]</h4>
         <h2>{{post.post_title}}</h2>
+        <p>{{post.post_tag}}</p>
+        <p>{{post.post_content}}</p>
     </div>
 {% endfor %}
 {% endblock %}
