@@ -1,3 +1,13 @@
 {% extends 'base.html' %}
-{% blockcontent %}
-{% end block %}
+{% block content %}
+<div>
+    <h4>Make your own post</h4>
+    <form action="">
+    </form>
+</div>
+{% for post in post_list %}
+    <div>
+        <h2>{{post.post_title}}</h2>
+    </div>
+{% endfor %}
+{% endblock %}
