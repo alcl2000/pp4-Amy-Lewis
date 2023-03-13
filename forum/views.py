@@ -76,7 +76,15 @@ class CategoryDetailView(View):
 
 
 def add_tag(request, category_id):
-    form = TagForm
+    if request.method == "POST":
+        form = TagForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Tag Added Successfully!')
+            return redirect("/categories")
+        else:
+            form = TagForm()
+    form = TagForm(initial={'tag_category': category_id})
     title_and_text = 'Add Tag'
     category_id = category_id
     category = get_object_or_404(Category, category_id=category_id)
@@ -86,12 +94,4 @@ def add_tag(request, category_id):
         'title_and_text': title_and_text,
         'category_title': category_title
         }
-    if request.method == "POST":
-        form = TagForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Tag Added Successfully!')
-            return redirect("/categories")
-        else:
-            form = TagForm()
     return render(request, 'add_tag.html', context)
