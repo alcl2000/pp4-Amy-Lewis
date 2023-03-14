@@ -5,7 +5,7 @@ from django.shortcuts import (render,
 from django.views import generic, View
 from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag
-from citizen_detectives.forms import CategoryForm, TagForm
+from citizen_detectives.forms import CategoryForm, TagForm, PostForm
 
 
 # Category CRUD functions/views
@@ -99,7 +99,18 @@ def add_tag(request, category_id):
 # Index view
 
 
-class IndexView(generic.ListView):
-    model = Post
-    queryset = Post.objects.order_by('-post_id')
-    template_name = "index.html"
+class IndexView(View):
+
+    def get(self, request, *args, **kwargs):
+        posts = Post.objects.all()
+        queryset = Post.objects.order_by('-post_id')
+        template_name = "index.html"
+        form = PostForm
+        context = {
+                   'form': form,
+                   'posts': posts}
+        return render(request, template_name, context) 
+
+    def post(self, request, *args):
+        form = PostForm
+        return render(request, template_name, form) 
