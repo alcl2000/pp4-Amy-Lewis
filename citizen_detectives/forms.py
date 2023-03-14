@@ -1,5 +1,5 @@
 from django import forms
-from .models import Category, Tag
+from .models import Category, Tag, Post
 
 
 class CategoryForm(forms.ModelForm):
@@ -20,3 +20,8 @@ class TagForm(forms.ModelForm):
         for field in self.disabled_fields:
             self.fields[field].disabled = True
 
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['post_title', 'post_category', 'post_tag', 'post_content']
