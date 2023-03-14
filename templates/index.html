@@ -1,3 +1,32 @@
 {% extends 'base.html' %}
-{% blockcontent %}
-{% end block %}
+{% block content %}
+<div>
+    <h4>Make your own post</h4>
+    <form action="">
+    </form>
+</div>
+<h3>Activity Feed</h3>
+{% for post in post_list %}
+    <div>
+        {% if user.is_staff%}
+        <div class="dropdown">
+            <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Edit Post</a></li>
+              <li><a class="dropdown-item" href="#">Delete Post</a></li>
+            </ul>
+        </div>
+        {% endif %}
+        <h3>.{{post.post_category}}</h3>
+        <h4>[{{post.post_author}}]</h4>
+        <h2>{{post.post_title}}</h2>
+        <p>{{post.post_tag}}</p>
+        <p>{{post.post_content}}</p>
+        <hr>
+        <p>{{post.post_likes}}</p>
+        <p>add comment field here</p>
+    </div>
+{% endfor %}
+{% endblock %}

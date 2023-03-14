@@ -11,5 +11,6 @@ urlpatterns = [
          views.delete_category, 
          name='delete_category'),
     path('edit/<category_id>', views.edit_category, name='edit_category'),
-    path('add-tag/<category_id>', views.add_tag, name='add_tag')
+    path('add-tag/<category_id>', views.add_tag, name='add_tag'),
+    path('', views.IndexView.as_view(), name='home_page')
 ]

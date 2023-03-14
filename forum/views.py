@@ -95,3 +95,11 @@ def add_tag(request, category_id):
         'category_title': category_title
         }
     return render(request, 'add_tag.html', context)
+
+# Index view
+
+
+class IndexView(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by('-post_id')
+    template_name = "index.html"
