@@ -5,7 +5,7 @@ from django.shortcuts import (render,
 from django.views import generic, View
 from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag
-from citizen_detectives.forms import CategoryForm, TagForm, PostForm
+from citizen_detectives.forms import CategoryForm, TagForm, PostForm  # noqa
 
 
 # Category CRUD functions/views
@@ -104,13 +104,25 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
         queryset = Post.objects.order_by('-post_id')
-        template_name = "index.html"
-        form = PostForm
         context = {
-                   'form': form,
+                   'form': PostForm,
                    'posts': posts}
-        return render(request, template_name, context) 
+        return render(request, "index.html", context) 
 
-    def post(self, request, *args):
-        form = PostForm
-        return render(request, template_name, form) 
+    def post(self, request, *args, **kwargs):
+        posts = Post.objects.all()
+        queryset = Post.objects.order_by('-post_id')
+        context = {
+                    'form': PostForm,
+                    'posts': posts
+                }
+        if request.method == 'POST':
+            form = PostForm(data=request.POST)
+            if form.is_valid:
+                post = form.save(commit=False)
+                post.post_author = request.user
+                form.save()
+                return redirect('home_page')
+        else:
+            form = PostForm()
+        return render(request, 'index.html', context) 
