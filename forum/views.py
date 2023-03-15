@@ -126,3 +126,12 @@ class IndexView(View):
         else:
             form = PostForm()
         return render(request, 'index.html', context) 
+
+# post detail view
+
+
+class PostDetail(View):
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        return render(request, 'post_detail.html', {'post': post})
