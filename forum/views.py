@@ -135,3 +135,10 @@ class PostDetail(View):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         return render(request, 'post_detail.html', {'post': post})
+
+
+def delete_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    messages.success(request, 'Post deleted sucessfully')
+    return redirect('home_page')
