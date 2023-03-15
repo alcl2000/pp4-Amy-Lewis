@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="post">
+        {% if user.is_staff or request.user == post.post_author%}
+            <div class="dropdown">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Edit Post</a></li>
+                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                </ul> 
+            </div>
+        {% endif %}
         <h1>{{post.post_title}}</h1>
         <h4>{{post.post_author}}</h4>
+        <h4>{{post.post_category}}</h4>
+        <h4 class="{{post.tag.tag_colour}}">{{post.post_tag}}</h4>
     </div>
 {% endblock %}
