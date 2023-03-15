@@ -2,11 +2,14 @@
 {% block content %}
 <div>
     <h4>Make your own post</h4>
-    <form action="">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Make Post</button>
     </form>
 </div>
 <h3>Activity Feed</h3>
-{% for post in post_list %}
+{% for post in posts %}
     <div>
         {% if user.is_staff%}
         <div class="dropdown">

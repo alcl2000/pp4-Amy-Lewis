@@ -79,15 +79,14 @@ class Tag(models.Model):
 
 class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
-    slug = models.SlugField(
-                            unique=True,
-                            max_length=15
-                            )
+    slug = AutoSlugField(populate_from='post_title')
     # various foriegn keys
     post_category = models.ForeignKey(Category, 
+                                      to_field='category_id',
                                       on_delete=models.CASCADE,
                                       )
-    post_tag = models.ForeignKey(Tag, 
+    post_tag = models.ForeignKey(Tag,
+                                 to_field='tag_id', 
                                  on_delete=models.SET_DEFAULT,
                                  default=Tag.get_default_pk
                                  )
