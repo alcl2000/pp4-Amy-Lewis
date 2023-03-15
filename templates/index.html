@@ -22,7 +22,11 @@
             </ul>
         </div>
         {% endif %}
-        <h3>.{{post.post_category}}</h3>
+        <h3>
+            <a href="{% url 'post_detail' post.slug %}">
+            .{{post.post_category}}
+            </a>
+        </h3>
         <h4>[{{post.post_author}}]</h4>
         <h2>{{post.post_title}}</h2>
         <p>{{post.post_tag}}</p>
