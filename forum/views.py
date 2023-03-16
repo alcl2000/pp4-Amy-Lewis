@@ -147,6 +147,7 @@ def delete_post(request, slug):
 
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    slug = slug
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -154,7 +155,7 @@ def edit_post(request, slug):
             post.post_author = request.user
             form.save()
             messages.success(request, 'Post edited successfully!')
-            return redirect('/post/<slug:slug>')
+            return redirect('post_detail', slug=slug)
     else:
-        form = PostForm()
+        form = PostForm(instance=post)
     return render(request, 'post_edit.html', {'form': form})
