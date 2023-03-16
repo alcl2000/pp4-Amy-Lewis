@@ -135,9 +135,26 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         return render(request, 'post_detail.html', {'post': post})
 
+# post edit/ delete
+
 
 def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.delete()
     messages.success(request, 'Post deleted sucessfully')
     return redirect('home_page')
+
+
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save(commit=False)
+            post.post_author = request.user
+            form.save()
+            messages.success(request, 'Post edited successfully!')
+            return redirect('/post/<slug:slug>')
+    else:
+        form = PostForm()
+    return render(request, 'post_edit.html', {'form': form})
