@@ -9,16 +9,9 @@ class CategoryForm(forms.ModelForm):
 
 
 class TagForm(forms.ModelForm):
-    disabled_fields = ('tag_category',)
-
     class Meta:
         model = Tag
         fields = '__all__'
-    
-    def __init__(self, *args, **kwargs):
-        super(TagForm, self).__init__(*args, **kwargs)
-        for field in self.disabled_fields:
-            self.fields[field].disabled = True
 
 
 class PostForm(forms.ModelForm):
