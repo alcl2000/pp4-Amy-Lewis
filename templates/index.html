@@ -11,15 +11,15 @@
 <h3>Activity Feed</h3>
 {% for post in posts %}
     <div>
-        {% if user.is_staff%}
+        {% if user.is_staff or request.user == post.post_author%}
         <div class="dropdown">
             <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-three-dots"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Edit Post</a></li>
-              <li><a class="dropdown-item" href="#">Delete Post</a></li>
-            </ul>
+            <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
+            <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+            </ul> 
         </div>
         {% endif %}
         <h3>
