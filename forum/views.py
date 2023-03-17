@@ -103,9 +103,11 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
         queryset = Post.objects.order_by('-post_id')
+        categories = Category.objects.all()
         context = {
                    'form': PostForm,
-                   'posts': posts}
+                   'posts': posts,
+                   'categories': categories}
         return render(request, "index.html", context) 
 
     def post(self, request, *args, **kwargs):

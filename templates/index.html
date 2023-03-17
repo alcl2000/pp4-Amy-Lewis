@@ -37,6 +37,15 @@
     </div>
     <div class="side-box popular-categories">
         <h4>Today's Popular Categories</h4>
+        <ul>
+            {% for category in categories %}
+            <li>
+                <a href="{% url 'category_detail' category.slug %}">
+                {{category.title}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
         <h4><a href="/categories">
             See all categories
         </a></h4>
