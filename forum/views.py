@@ -43,11 +43,10 @@ def delete_category(request, category_id):
 def edit_category(request, category_id):
     category = get_object_or_404(Category, category_id=category_id)
     if request.method == 'POST':
-        if request.method == 'POST':
-            form = CategoryForm(request.POST, instance=category)
-            if form.is_valid():
-                form.save()
-                return redirect('/categories')
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('/categories')
     form = CategoryForm(instance=category)
     title_and_text = "Edit Category"
     context = {
@@ -126,3 +125,37 @@ class IndexView(View):
         else:
             form = PostForm()
         return render(request, 'index.html', context) 
+
+# post detail view
+
+
+class PostDetail(View):
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        return render(request, 'post_detail.html', {'post': post})
+
+# post edit/ delete
+
+
+def delete_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    messages.success(request, 'Post deleted sucessfully')
+    return redirect('home_page')
+
+
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    slug = slug
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save(commit=False)
+            post.post_author = request.user
+            form.save()
+            messages.success(request, 'Post edited successfully!')
+            return redirect('post_detail', slug=slug)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'post_edit.html', {'form': form})
