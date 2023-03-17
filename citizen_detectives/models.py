@@ -36,11 +36,6 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    tag_category = models.ForeignKey(Category, 
-                                     to_field='category_id',
-                                     default=Category.get_default_pk,
-                                     on_delete=models.CASCADE)
-    
     tag_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=30, unique=True)
 
@@ -65,9 +60,6 @@ class Tag(models.Model):
 
     def tag(self):
         return self.tag_colour
-    
-    def tag_category_name(self):
-        return self.tag_category.title
     
     @classmethod
     def get_default_pk(cls):
@@ -120,6 +112,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post,
                              on_delete=models.CASCADE)
     text = models.TextField()
+    date = models.DateTimeField(auto_now=True)
     # foriegn keys
     comment_author = models.ForeignKey(User,
                                        on_delete=models.SET_DEFAULT,
@@ -130,3 +123,19 @@ class Comment(models.Model):
                                            related_name='comment_likes',
                                            blank=True
                                            )
+    
+    class Meta:
+        ordering = ['-date']
+    
+    def __str__(self):
+        return self.text
+
+    @property
+    def children(self):
+        Comment.objects.filter(parent=self).reverse
+    
+    @property
+    def is_parent(self):
+        if self.parent is None:
+            return True
+        return False
