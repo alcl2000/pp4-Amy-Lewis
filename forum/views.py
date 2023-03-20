@@ -4,7 +4,7 @@ from django.shortcuts import (render,
                               redirect)
 from django.views import generic, View
 from django.contrib import messages
-from citizen_detectives.models import Category, Post, Tag
+from citizen_detectives.models import Category, Post, Tag, Comment
 from citizen_detectives.forms import (CategoryForm, 
                                       TagForm, 
                                       PostForm, 
@@ -138,12 +138,30 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
+        comments = Comment.objects.filter(post=post)
+        context = {'post': post, 
+                   'form': CommentForm,
+                   'comments': comments
+                   }
         context = {'post': post, 'form': CommentForm}
         return render(request, 'post_detail.html', context)
-    
-    def post(self, request, slug, *args, **kwargs):
-        queryset
 
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        comments = Comment.objects.filter(post=post)
+        context = {'post': post, 
+                   'form': CommentForm,
+                   'comments': comments
+                   }
+        if request.method == 'POST':
+            form = CommentForm(data=request.POST)
+            if form.is_valid:
+                comment = form.save(commit=False)
+                comment.comment_author = request.user
+                comment.post = post
+                form.save()
+                return render(request, 'post_detail.html', context)
 
 # post edit/ delete
 
