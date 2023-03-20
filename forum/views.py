@@ -143,7 +143,6 @@ class PostDetail(View):
                    'form': CommentForm,
                    'comments': comments
                    }
-        context = {'post': post, 'form': CommentForm}
         return render(request, 'post_detail.html', context)
 
     def post(self, request, slug, *args, **kwargs):
