@@ -18,4 +18,14 @@
         <h4 class="{{post.tag.tag_colour}}">{{post.post_tag}}</h4>
         <p>{{post.post_content}}</p>
     </div>
+    <section>
+        <!-- comments section -->
+        <div class="comment-form">
+            <form action="">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+    </section>
 {% endblock %}

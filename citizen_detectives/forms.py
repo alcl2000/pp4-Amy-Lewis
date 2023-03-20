@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from .models import Category, Tag, Post, Comment
 
 
@@ -23,4 +24,12 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['text', 'parent']
+        fields = ['text',]
+
+        labels = {
+            'text': _('add comment'),
+        }
+        
+        widgets = {
+            'text': forms.TextInput(),
+        }
