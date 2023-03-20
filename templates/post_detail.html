@@ -39,7 +39,7 @@
                             <i class="bi bi-three-dots"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Comment</a></li>
+                            <li><a class="dropdown-item" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
                         </ul> 
                     </div>
                 {% endif %}

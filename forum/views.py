@@ -187,3 +187,9 @@ def edit_post(request, slug):
     else:
         form = PostForm(instance=post)
     return render(request, 'post_edit.html', {'form': form})
+
+
+def delete_comment(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    comment.delete()
+    return redirect(request.META.get('HTTP_REFERER'))
