@@ -109,6 +109,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    id = models.AutoField(primary_key=True)
     post = models.ForeignKey(Post,
                              on_delete=models.CASCADE)
     text = models.TextField()
