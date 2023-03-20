@@ -1,5 +1,6 @@
 from django import forms
-from .models import Category, Tag, Post
+from django.utils.translation import gettext_lazy as _
+from .models import Category, Tag, Post, Comment
 
 
 class CategoryForm(forms.ModelForm):
@@ -9,19 +10,26 @@ class CategoryForm(forms.ModelForm):
 
 
 class TagForm(forms.ModelForm):
-    disabled_fields = ('tag_category',)
-
     class Meta:
         model = Tag
         fields = '__all__'
-    
-    def __init__(self, *args, **kwargs):
-        super(TagForm, self).__init__(*args, **kwargs)
-        for field in self.disabled_fields:
-            self.fields[field].disabled = True
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['post_title', 'post_category', 'post_tag', 'post_content']
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text',]
+
+        labels = {
+            'text': _('add comment'),
+        }
+        
+        widgets = {
+            'text': forms.TextInput(),
+        }

@@ -4,8 +4,11 @@ from django.shortcuts import (render,
                               redirect)
 from django.views import generic, View
 from django.contrib import messages
-from citizen_detectives.models import Category, Post, Tag
-from citizen_detectives.forms import CategoryForm, TagForm, PostForm  # noqa
+from citizen_detectives.models import Category, Post, Tag, Comment
+from citizen_detectives.forms import (CategoryForm, 
+                                      TagForm, 
+                                      PostForm, 
+                                      CommentForm)
 
 
 # Category CRUD functions/views
@@ -135,7 +138,29 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
-        return render(request, 'post_detail.html', {'post': post})
+        comments = Comment.objects.filter(post=post)
+        context = {'post': post, 
+                   'form': CommentForm,
+                   'comments': comments
+                   }
+        return render(request, 'post_detail.html', context)
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        comments = Comment.objects.filter(post=post)
+        context = {'post': post, 
+                   'form': CommentForm,
+                   'comments': comments
+                   }
+        if request.method == 'POST':
+            form = CommentForm(data=request.POST)
+            if form.is_valid:
+                comment = form.save(commit=False)
+                comment.comment_author = request.user
+                comment.post = post
+                form.save()
+                return render(request, 'post_detail.html', context)
 
 # post edit/ delete
 
@@ -161,3 +186,9 @@ def edit_post(request, slug):
     else:
         form = PostForm(instance=post)
     return render(request, 'post_edit.html', {'form': form})
+
+
+def delete_comment(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    comment.delete()
+    return redirect(request.META.get('HTTP_REFERER'))
