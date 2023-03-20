@@ -17,6 +17,16 @@
         <h4>{{post.post_category}}</h4>
         <h4 class="{{post.tag.tag_colour}}">{{post.post_tag}}</h4>
         <p>{{post.post_content}}</p>
+        {% if liked %}
+        <a href="">
+            <i class="bi bi-heart-fill"></i>
+        </a>
+        {% else %}
+        <a href="">
+            <i class="bi bi-heart"></i>
+        </a> 
+        {% endif %}
+        
     </div>
     <section>
         <!-- comments section -->
