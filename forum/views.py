@@ -5,7 +5,10 @@ from django.shortcuts import (render,
 from django.views import generic, View
 from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag
-from citizen_detectives.forms import CategoryForm, TagForm, PostForm  # noqa
+from citizen_detectives.forms import (CategoryForm, 
+                                      TagForm, 
+                                      PostForm, 
+                                      CommentForm)
 
 
 # Category CRUD functions/views
@@ -135,7 +138,12 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
-        return render(request, 'post_detail.html', {'post': post})
+        context = {'post': post, 'form': CommentForm}
+        return render(request, 'post_detail.html', context)
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset
+
 
 # post edit/ delete
 
