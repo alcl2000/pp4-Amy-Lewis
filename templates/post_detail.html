@@ -23,7 +23,7 @@
         <div class="comment-form">
             <form action="" method="POST">
                 {% csrf_token %}
-                {{form}}
+                {{form.as_p}}
                 <button type="submit">Post Comment</button>
             </form>
         </div>
@@ -33,6 +33,16 @@
             {% for comment in comments %}
             <div class="comment-box">
                 <h5>[{{comment.comment_author}}]</h5>
+                {% if user.is_staff or request.user == comment.comment_author%}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Comment</a></li>
+                        </ul> 
+                    </div>
+                {% endif %}
                 <p>{{comment.text}}</p>
             </div>
             {% endfor %}
