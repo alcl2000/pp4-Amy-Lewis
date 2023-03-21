@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    <h4>Make your own post</h4>
-    <form action="" method="POST">
+<h4>Home</h4>
+<div class="post-form">
+    <form action="" method="POST" id="make-post" class="form-group">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.as_ul}}
         <button type="submit">Make Post</button>
     </form>
 </div>

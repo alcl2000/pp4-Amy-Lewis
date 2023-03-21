@@ -27,3 +27,17 @@
 #left{
     margin-left: 5rem;
 }
+.post-form{
+    max-width: 60%;
+    margin: auto;
+}
+#make-post>li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 80%;
+    margin-right: 0;
+}
+#make-post>input[text-area]{
+    resize: none;
+}
