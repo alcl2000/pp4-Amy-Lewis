@@ -17,6 +17,21 @@
         <h4>{{post.post_category}}</h4>
         <h4 class="{{post.tag.tag_colour}}">{{post.post_tag}}</h4>
         <p>{{post.post_content}}</p>
+        <form action="{% url 'like_post' post.slug %}" method="post">
+            {% csrf_token %}
+            {% if user.id in post.post_likes %}
+                <button type="submit" value="{{post.slug}}">
+                    <i class="bi bi-heart-fill"></i>
+                </button>
+            {% else %}
+                <button type="submit" value="{{post.slug}}">
+                    <i class="bi bi-heart"></i>
+                </button>
+            {% endif %}
+            <p>
+            {{post.number_of_likes}}
+            </p>
+        </form>
     </div>
     <section>
         <!-- comments section -->

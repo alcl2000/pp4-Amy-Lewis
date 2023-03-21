@@ -162,6 +162,17 @@ class PostDetail(View):
                 form.save()
                 return render(request, 'post_detail.html', context)
 
+# post detail like post
+
+
+def like_post(request, slug, *args, **kwargs):
+    post = get_object_or_404(Post, slug=slug)
+    if post.post_likes.filter(id=request.user.id).exists():
+        post.post_likes.remove(request.user)
+    else:
+        post.post_likes.add(request.user)
+    return redirect(request.META.get('HTTP_REFERER'))
+
 # post edit/ delete
 
 
