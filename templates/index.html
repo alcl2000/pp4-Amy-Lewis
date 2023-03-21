@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<h4>Home</h4>
 <div class="post-form">
+    <h5>Make a post:</h5>
     <form action="" method="POST" id="make-post" class="form-group">
         {% csrf_token %}
         {{form.as_ul}}
-        <button type="submit">Make Post</button>
+        <button class="btn btn-light"  type="submit">Make Post</button>
     </form>
 </div>
 <h3>Activity Feed</h3>

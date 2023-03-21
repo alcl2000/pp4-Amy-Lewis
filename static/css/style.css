@@ -31,12 +31,19 @@
     max-width: 60%;
     margin: auto;
 }
+#make-post{
+    background-color: var(--light-gray);
+}
 #make-post>li{
     list-style-type: none;
     margin-bottom: 5px;
     text-align: center;
     width: 80%;
-    margin-right: 0;
+    margin-left: 10%;
+}
+#make-post>button{
+    margin: 5px;
+    margin-left: 40%;
 }
 #make-post>input[text-area]{
     resize: none;
