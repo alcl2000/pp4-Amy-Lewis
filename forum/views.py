@@ -165,12 +165,13 @@ class PostDetail(View):
 # post detail like post
 
 
-def like_post(self, request, slug, *args, **kwargs):
+def like_post(request, slug, *args, **kwargs):
     post = get_object_or_404(Post, slug=slug)
-    if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)
+    if post.post_likes.filter(id=request.user.id).exists():
+        post.post_likes.remove(request.user)
     else:
-        post.likes.add(request.user)
+        post.post_likes.add(request.user)
+    return redirect(request.META.get('HTTP_REFERER'))
 
 # post edit/ delete
 
