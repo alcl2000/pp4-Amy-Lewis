@@ -8,7 +8,7 @@
         <button class="btn btn-light"  type="submit">Make Post</button>
     </form>
 </div>
-<h3>Activity Feed:-</h3>
+    <h3>Activity Feed:-</h3>
 {% for post in posts %}
     <div class="card text-bg-secondary w-75 mb-3">
         {% if user.is_staff or request.user == post.post_author%}
@@ -32,8 +32,30 @@
         <p>{{post.post_tag}}</p>
         <p>{{post.post_content}}</p>
         <hr>
-        <p>{{post.number_of_likes}}</p>
-        <p>{{comment_count}}</p>
+        <div class="row">
+            <div class="col col-2"></div>
+            <div class="col col-4">
+                <form action="{% url 'like_post' post.slug %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                        {% if user.id in post.post_likes %}
+                        <i class="bi bi-heart-fill"></i>
+                        {% else %}
+                        <i class="bi bi-heart"></i>
+                        {% endif %}
+                    </button>
+                </form>
+                <span>
+                    <p>{{post.number_of_likes}}</p>
+                </span>
+            </div>
+            <div class="col col-4">
+                <a href="" class="btn btn-light">
+                    <i class="bi bi-chat"></i>
+                </a>
+                <p>{{comment_count}}</p>
+            </div>
+        </div>
     </div>
 {% endfor %}
 <div class="side-box popular-categories">
