@@ -11,25 +11,27 @@
     <h3>Activity Feed:-</h3>
 {% for post in posts %}
     <div class="card text-bg-secondary w-75 mb-3">
-        {% if user.is_staff or request.user == post.post_author%}
-        <div class="dropdown">
-            <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-three-dots"></i>
-            </button>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-            <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
-            </ul> 
+        <div class="hstack gap-3">
+            <h3 card="card-title p-1">
+                <a href="{% url 'post_detail' post.slug %}">
+                .{{post.post_title}}
+                </a>
+            </h3>
+            <h4 class="ms-auto">[{{post.post_author}}]</h4>
+            {% if user.is_staff or request.user == post.post_author%}
+            <div class="dropdown">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
+                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                </ul> 
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-        <h3 card="card-title">
-            <a href="{% url 'post_detail' post.slug %}">
-            .{{post.post_title}}
-            </a>
-        </h3>
-        <h4>[{{post.post_author}}]</h4>
-        <h6>{{post.post_category}}</h2>
-        <p>{{post.post_tag}}</p>
+        <h6 class="ms-3">{{post.post_category}}</h2>
+        <p class="tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
         <p>{{post.post_content}}</p>
         <hr>
         <div class="row">
