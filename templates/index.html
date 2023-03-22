@@ -8,9 +8,9 @@
         <button class="btn btn-light"  type="submit">Make Post</button>
     </form>
 </div>
-<h3>Activity Feed</h3>
+<h3>Activity Feed:-</h3>
 {% for post in posts %}
-    <div>
+    <div class="card text-bg-secondary w-75 mb-3">
         {% if user.is_staff or request.user == post.post_author%}
         <div class="dropdown">
             <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,33 +22,33 @@
             </ul> 
         </div>
         {% endif %}
-        <h3>
+        <h3 card="card-title">
             <a href="{% url 'post_detail' post.slug %}">
-            .{{post.post_category}}
+            .{{post.post_title}}
             </a>
         </h3>
         <h4>[{{post.post_author}}]</h4>
-        <h2>{{post.post_title}}</h2>
+        <h6>{{post.post_category}}</h2>
         <p>{{post.post_tag}}</p>
         <p>{{post.post_content}}</p>
         <hr>
-        <p>{{post.post_likes}}</p>
-        <p>add comment field here</p>
-    </div>
-    <div class="side-box popular-categories">
-        <h4>Today's Popular Categories</h4>
-        <ul>
-            {% for category in categories %}
-            <li>
-                <a href="{% url 'category_detail' category.slug %}">
-                {{category.title}}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        <h4><a href="/categories">
-            See all categories
-        </a></h4>
+        <p>{{post.number_of_likes}}</p>
+        <p>{{comment_count}}</p>
     </div>
 {% endfor %}
+<div class="side-box popular-categories">
+    <h4>Today's Popular Categories</h4>
+    <ul>
+        {% for category in categories %}
+        <li>
+            <a href="{% url 'category_detail' category.slug %}">
+            {{category.title}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <h4><a href="/categories">
+        See all categories
+    </a></h4>
+</div>
 {% endblock %}
