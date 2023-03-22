@@ -9,7 +9,7 @@
     {% endif %}
     {{category_title}}
 </h2>
-<form action="post">
+<form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">{{title_and_text}}</button>

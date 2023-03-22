@@ -77,27 +77,22 @@ class CategoryDetailView(View):
 # Tag CRUD functions/views
 
 
-def add_tag(request, category_id):
+def add_tag(request):
+    form = TagForm()
+    title_and_text = 'Add Tag'
+    context = {
+        'form': form,
+        'title_and_text': title_and_text,
+        }
+    return render(request, 'add_tag.html', context)
     if request.method == "POST":
         form = TagForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Tag Added Successfully!')
-            return redirect("/categories")
         else:
             form = TagForm()
-    form = TagForm(initial={'tag_category': category_id})
-    title_and_text = 'Add Tag'
-    category_id = category_id
-    category = get_object_or_404(Category, category_id=category_id)
-    category_title = category.title
-    context = {
-        'form': form,
-        'title_and_text': title_and_text,
-        'category_title': category_title
-        }
-    return render(request, 'add_tag.html', context)
-
+    return redirect(request.META.get('HTTP_REFERER'))
 # Index view
 
 

@@ -11,7 +11,7 @@ urlpatterns = [
          views.delete_category, 
          name='delete_category'),
     path('edit/<category_id>', views.edit_category, name='edit_category'),
-    path('add-tag/<category_id>', views.add_tag, name='add_tag'),
+    path('add-tag/', views.add_tag, name='add_tag'),
     path('', views.IndexView.as_view(), name='home_page'),
     path('post/<slug:slug>', views.PostDetail.as_view(), name='post_detail'),
     path('post-delete/<slug:slug>', views.delete_post, name='post_delete'),
