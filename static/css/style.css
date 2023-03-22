@@ -27,3 +27,43 @@
 #left{
     margin-left: 5rem;
 }
+.post-form{
+    max-width: 60%;
+    margin: auto;
+}
+#make-post{
+    background-color: var(--light-gray);
+}
+#make-post>li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+#make-post>button{
+    margin: 5px;
+    margin-left: 40%;
+}
+#make-post>input[text-area]{
+    resize: none;
+}
+.card{
+    margin:auto;
+    text-overflow: ellipsis;
+}
+.card>p{
+    padding: 15px;
+}
+.card>.hstack{
+    padding: 15px;
+}
+.tag{
+    margin-left: 10px;
+    border-radius: 35%;
+    padding: 5px!important;
+    max-width: fit-content;
+}
+.RED{
+    background-color: #FE9696;
+}

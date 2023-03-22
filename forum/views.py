@@ -107,19 +107,30 @@ class IndexView(View):
         posts = Post.objects.all()
         queryset = Post.objects.order_by('-post_id')
         categories = Category.objects.all()
+        for post in posts:
+            post_id = post.post_id
+            comment_count = Comment.objects.filter(post=post_id).count()
         context = {
                    'form': PostForm,
                    'posts': posts,
-                   'categories': categories}
+                   'categories': categories,
+                   'comment_count': comment_count
+                   }
         return render(request, "index.html", context) 
 
     def post(self, request, *args, **kwargs):
         posts = Post.objects.all()
         queryset = Post.objects.order_by('-post_id')
+        categories = Category.objects.all()
+        for post in posts:
+            post_id = post.post_id
+            comment_count = Comment.objects.filter(post=post_id).count()
         context = {
-                    'form': PostForm,
-                    'posts': posts
-                }
+                   'form': PostForm,
+                   'posts': posts,
+                   'categories': categories,
+                   'comment_count': comment_count
+                   }
         if request.method == 'POST':
             form = PostForm(data=request.POST)
             if form.is_valid:

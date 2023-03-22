@@ -19,6 +19,20 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['post_title', 'post_category', 'post_tag', 'post_content']
+        widgets = {
+                   'post_title': forms.TextInput(attrs={
+                                                        'class': 'form-control'
+                                                        }),
+                   'post_category': forms.Select(attrs={
+                                                        'class': 'form-select'
+                                                        }),
+                   'post_tag': forms.Select(attrs={
+                                                        'class': 'form-select'
+                                                        }),
+                   'post_content': forms.Textarea(attrs={
+                                                        'class': 'form-control'
+                                                        })
+                    }
 
 
 class CommentForm(forms.ModelForm):
