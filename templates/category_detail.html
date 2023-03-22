@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>
-    <a href="/categories/">
-        <<= back to categories
-    </a>
-</h2>
-<h1>{{category.title}}</h1>
+<div class="category-bar row">
+        <div class="col col-3">
+            <h3>
+                <a href="/categories/">
+                    <<= back to categories
+                </a>
+            </h3>
+        </div>
+        <h1 class="">{{category.title}}</h1>
+        <h3>{{category.description}}</h3>
+</div>
 {% for post in posts %}
 <div class="card text-bg-secondary w-75 mb-3">
     <div class="hstack gap-3">

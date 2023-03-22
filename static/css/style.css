@@ -67,3 +67,12 @@
 .RED{
     background-color: #FE9696;
 }
+.category-bar{
+    background-color: var(--light-gray);
+    margin-bottom: 10px;
+    text-align: center;
+}
+.category-bar>h1{
+    color: var(--yellow);
+    font-family: 'Lobster Two', cursive;
+}
