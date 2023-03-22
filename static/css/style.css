@@ -48,3 +48,22 @@
 #make-post>input[text-area]{
     resize: none;
 }
+.card{
+    margin:auto;
+    text-overflow: ellipsis;
+}
+.card>p{
+    padding: 15px;
+}
+.card>.hstack{
+    padding: 15px;
+}
+.tag{
+    margin-left: 10px;
+    border-radius: 35%;
+    padding: 5px!important;
+    max-width: fit-content;
+}
+.RED{
+    background-color: #FE9696;
+}
