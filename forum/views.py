@@ -66,7 +66,7 @@ class CategoryDetailView(View):
         posts = Post.objects.filter(
                                     post_category=category_id
                                     ).order_by('-post_date')
-        tags = Tag.objects.filter(tag_category=category_id)
+        tags = Tag.objects.all()
         return render(request, 'category_detail.html',
                       {
                         'category': category,
