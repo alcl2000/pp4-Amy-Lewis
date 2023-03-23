@@ -21,6 +21,14 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={
+                                           'class': 'form-control' 
+            }),
+            'tag_colour': forms.Select(attrs={
+                                             'class': 'form-control'
+            })
+        }
 
 
 class PostForm(forms.ModelForm):
