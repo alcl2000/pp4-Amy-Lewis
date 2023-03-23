@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'description', 'slug')
+    list_display = ('title', 'description', 'category_slug')
 
 
 @admin.register(Tag)
