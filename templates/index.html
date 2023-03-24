@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tag %} class="{{message.tags}}"{% endif %} >
+            {{message}}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div class="post-form">
     <h5>Make a post:</h5>
     <form action="" method="POST" id="make-post" class="form-group">
