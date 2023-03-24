@@ -123,7 +123,6 @@ class IndexView(View):
                    'form': PostForm,
                    'posts': posts,
                    'categories': categories,
-                   'comment_count': comment_count
                    }
         if request.method == 'POST':
             form = PostForm(data=request.POST)
