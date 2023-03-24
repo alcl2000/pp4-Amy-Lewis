@@ -4,7 +4,7 @@ from django.urls import path
 urlpatterns = [
     path('categories/', views.CategoryList.as_view(), name='category_view'),
     path('add-category/', views.add_category, name='add_category'),
-    path('category/<slug:slug>', 
+    path('category/<slug:category_slug>', 
          views.CategoryDetailView.as_view(), 
          name='category_detail'),
     path('delete/<category_id>', 

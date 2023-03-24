@@ -109,7 +109,6 @@ class IndexView(View):
                    'form': PostForm,
                    'posts': posts,
                    'categories': categories,
-                   'comment_count': comment_count
                    }
         return render(request, "index.html", context) 
 
