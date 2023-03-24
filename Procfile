@@ -1,0 +1,1 @@
+web: gunicorn citizen_detectives.wsgi
