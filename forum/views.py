@@ -128,9 +128,13 @@ class IndexView(View):
             form = PostForm(data=request.POST)
             if form.is_valid:
                 post = form.save(commit=False)
-                post.post_author = request.user
-                form.save()
-                return redirect('home_page')
+                if request.user.is_authenticated:
+                    post.post_author = request.user
+                    form.save()
+                    return redirect('home_page')
+                else:
+                    messages.warning(request, 'You must be logged in to make a post')
+                    return redirect('home_page')
         else:
             form = PostForm()
         return render(request, 'index.html', context) 
