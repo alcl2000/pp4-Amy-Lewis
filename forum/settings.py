@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mb2test.herokuapp.com", "citizen-detectives.herokuapp.com" ,"localhost"]
+ALLOWED_HOSTS = ["mb2test.herokuapp.com", "citizen-detectives.herokuapp.com","localhost"]
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'cloudinary_storage',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
     'cloudinary',
     'citizen_detectives',
 ]
@@ -147,7 +147,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
