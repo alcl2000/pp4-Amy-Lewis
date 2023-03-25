@@ -69,22 +69,28 @@
                 <p>Sorry, you must be logged in to leave a comment!</p>
             </div>
         {% endif %}
-        <div>
+        <div class="mt-3">
             <h3>Comments</h3>
             <h5>sort by:</h5>
             {% for comment in comments %}
-            <div class="comment-box">
-                <h5>[{{comment.comment_author}}]</h5>
-                {% if user.is_staff or request.user == comment.comment_author%}
-                    <div class="dropdown">
-                        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-three-dots"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
-                        </ul> 
+            <div class="card text-bg-secondary w-25 mt-3 mb-3">
+                <div class="row">
+                    <div class="col col-8">
+                        <h5>[{{comment.comment_author}}]</h5>
                     </div>
-                {% endif %}
+                    <div class="col">
+                        {% if user.is_staff or request.user == comment.comment_author%}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
+                                </ul> 
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
                 <p>{{comment.text}}</p>
             </div>
             {% endfor %}
