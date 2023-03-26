@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>
+<h2 class="text-center">
     {{title_and_text}}
-    {% if view is add_tag %}
-    to
-    {% else %}
-    in
-    {% endif %}
-    {{category_title}}
 </h2>
-<form action="" method="post">
+<form class="card w-75 text-bg-secondary" action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">{{title_and_text}}</button>
+    <div class="row d-flex justify-content-center">
+        <button class="btn btn-light w-25 mb-2" type="submit">{{title_and_text}}</button>
+    </div>
 </form>
 {% endblock %}
