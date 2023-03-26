@@ -7,13 +7,14 @@ cloudinary==1.32.0
 cryptography==40.0.0
 defusedxml==0.7.1
 dj-database-url==1.2.0
-Django==4.1.7
-django-allauth==0.25.2
+Django==3.2.18
+django-allauth==0.53.1
 django-autoslug==1.9.8
 django-cloudinary-storage==0.3.0
 django-summernote==0.8.20.0
 gunicorn==20.1.0
 idna==3.4
+oauth==1.0.1
 oauthlib==3.2.2
 psycopg2==2.9.5
 pycparser==2.21
