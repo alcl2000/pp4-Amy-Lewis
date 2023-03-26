@@ -35,7 +35,7 @@
 					</form>
 					<ul class="navbar-nav mb-2 mb-lg-0">
 						<li class="nav-item ">
-							<a class="nav-link link-light" href="/admin">Account</a>
+							<a class="nav-link link-light" href="{% url 'account_signup' %}">Account</a>
 						</li>
 						<li class="nav-item">
 							{% if user.is_authenticated %}
