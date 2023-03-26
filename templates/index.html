@@ -22,7 +22,7 @@
     <div class="card text-bg-secondary w-75 mb-3">
         <div class="hstack gap-3">
             <h3 card="card-title p-1">
-                <a href="{% url 'post_detail' post.slug %}">
+                <a class="text-reset " href="{% url 'post_detail' post.slug %}">
                 .{{post.post_title}}
                 </a>
             </h3>
@@ -40,7 +40,7 @@
             {% endif %}
         </div>
         <h6 class="ms-3">{{post.post_category}}</h2>
-        <p class="tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+        <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
         <p>{{post.post_content}}</p>
         <hr>
         <div class="row">
