@@ -80,7 +80,7 @@
     <ul>
         {% for category in categories %}
         <li>
-            <a href="{% url 'category_detail' category.category_slug %}">
+            <a href="{% url 'category_detail' category.slug %}">
             {{category.title}}
             </a>
         </li>
