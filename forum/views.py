@@ -133,7 +133,8 @@ class IndexView(View):
                     form.save()
                     return redirect('home_page')
                 else:
-                    messages.warning(request, 'You must be logged in to make a post')
+                    messages.warning(request, 
+                                     'You must be logged in to make a post')
                     return redirect('home_page')
         else:
             form = PostForm()
@@ -165,21 +166,28 @@ class PostDetail(View):
             form = CommentForm(data=request.POST)
             if form.is_valid:
                 comment = form.save(commit=False)
-                comment.comment_author = request.user
-                comment.post = post
-                form.save()
-                return render(request, 'post_detail.html', context)
+                if request.user.is_authenticated:
+                    comment.comment_author = request.user
+                    comment.post = post
+                    form.save()
+                    return render(request, 'post_detail.html', context)
+                else:
+                    messages.warning(request, 
+                                     'You must be logged in to creat a comment'
+                                     )
+                    return render(request, 'post_detail.html', context)
 
 # post detail like post
 
 
 def like_post(request, slug, *args, **kwargs):
     post = get_object_or_404(Post, slug=slug)
-    if post.post_likes.filter(id=request.user.id).exists():
-        post.post_likes.remove(request.user)
-    else:
-        post.post_likes.add(request.user)
-    return redirect(request.META.get('HTTP_REFERER'))
+    if request.user.is_authenticated:
+        if post.post_likes.filter(id=request.user.id).exists():
+            post.post_likes.remove(request.user)
+        else:
+            post.post_likes.add(request.user)
+        return redirect(request.META.get('HTTP_REFERER'))
 
 # post edit/ delete
 
