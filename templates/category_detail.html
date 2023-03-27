@@ -4,7 +4,7 @@
         <div class="col col-3">
             <h3>
                 <a class="text-decoration-none text-reset" href="/categories/">
-                    <<< back to categories
+                    <i class="bi bi-arrow-left-square"></i> back to categories
                 </a>
             </h3>
         </div>
@@ -21,85 +21,81 @@
 </ul>
 {% endif %}
 <div class="row mt-4">
-    <div class="col col-3 order-2 sm">
-        <div class="border border-light-subtle">
-            <span class="m-1 rounded">
-                Tags:
-                <ul class="text-decoration-none">
-                {% for tag in tags %}
-                <li id="tag" class="{{tag.tag_colour}}">{{tag.title}}</li>
-                {% endfor %}
-                <li>
-                    <a class="text-decoration-none text-reset" href="/add-tag/">+ Add New Tag</a>
-                </li>
-                </ul>
-            </span>
+    <div class="col col-8 ms-5 col-md-2">
+        <div class="p-1 mb-3 rounded border border-light-subtle">
+            Tags:
+            <ul class="text-decoration-none">
+            {% for tag in tags %}
+            <li id="tag" class="rounded-pill {{tag.tag_colour}}">{{tag.title}}</li>
+            {% endfor %}
+            <li>
+                <a class="text-decoration-none text-reset" href="/add-tag/">+ Add a New Tag</a>
+            </li>
+            </ul>
         </div>
     </div>
-    <div class="col col-8">
+    <div class="col col-md-9">
         {% for post in posts %}
-        <div class="card text-bg-secondary w-75 mb-3">
-            <div class="hstack gap-3">
-                <h3 card="card-title p-1">
-                    <a class="text-reset" href="{% url 'post_detail' post.slug %}">
-                    .{{post.post_title}}
-                    </a>
-                </h3>
-                <h4 class="ms-auto">[{{post.post_author}}]</h4>
-                {% if user.is_staff or request.user == post.post_author%}
-                <div class="dropdown">
-                    <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-                    <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
-                    </ul> 
-                </div>
-                {% endif %}
-            </div>
-            <h6 class="ms-3">{{post.post_category}}</h2>
-            <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
-            <p>{{post.post_content}}</p>
-            <hr>
-            <div class="row">
-                <div class="col col-2"></div>
-                <div class="col col-4">
-                    <div class="hstack gap-3">
-                        {% if user.is_authenticated %}
-                            <form action="{% url 'like_post' post.slug %}" method="post">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-light" value="{{post.slug}}">
-                                    {% if user.id in post.post_likes %}
-                                    <i class="bi bi-heart-fill"></i>
-                                    {% else %}
-                                    <i class="bi bi-heart"></i>
-                                    {% endif %}
-                                </button>
-                            </form>
-                            {% else %}
-                            <div class="dropdown" >
-                                <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-heart"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item">You must be logged in to like this post!</li>
-                                </ul>
-                            </div>
-                        {% endif %}
-                        <span class="interaction-count">
-                            <p>{{post.number_of_likes}}</p>
-                        </span>
-                    </div>
-                </div>
-                <div class="col col-4 mb-2">
-                    <div class="hstack gap-3">
-                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-light interaction-count">
-                            <i class="bi bi-chat"></i>
+        <div class="container">
+            <div class="card text-bg-secondary mb-3">
+                <div class="hstack gap-3">
+                    <h3>
+                        <a class="text-reset " href="{% url 'post_detail' post.slug %}">
+                        .{{post.post_title}}
                         </a>
-                        <span class="interaction-count">
-                            <p>{{comment_count}}</p>
-                        </span>
+                    </h3>
+                    <h4 class="ms-auto">[{{post.post_author}}]</h4>
+                    {% if user.is_staff or request.user == post.post_author%}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
+                        <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                        </ul> 
+                    </div>
+                    {% endif %}
+                </div>
+                <h6 class="ms-3">{{post.post_category}}</h6>
+                <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+                <p>{{post.post_content}}</p>
+                <hr>
+                <div class="row">
+                    <div class="col col-2"></div>
+                    <div class="col col-4">
+                        <div class="hstack gap-3">
+                            {% if user.is_authenticated %}
+                                <form action="{% url 'like_post' post.slug %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                                        {% if user.id in post.post_likes %}
+                                        <i class="bi bi-heart-fill"></i>
+                                        {% else %}
+                                        <i class="bi bi-heart"></i>
+                                        {% endif %}
+                                    </button>
+                                </form>
+                                {% else %}
+                                <div class="dropdown" >
+                                    <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item">You must be logged in to like this post!</li>
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            <p>{{post.number_of_likes}}</p>
+                        </div>
+                    </div>
+                    <div class="col col-4 mb-2">
+                        <div class="hstack gap-3">
+                            <a href="" class="btn btn-light interaction-count">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                                <p>{{comment_count}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
