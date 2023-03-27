@@ -22,5 +22,9 @@ As this project is intended as an in-universe tie-in to the show yellowjackets, 
 ![Adult Shauna and Adult Misty in front of a teal background](static/assets/readme/yellowjackets-2.jpg)
 ![Three of the teen yellowjackets on the plane before its impending crash](static/assets/readme/yellowjackets-3.jpg)
 
-Fonts were chosen mainly because of their spacing and simplicity to help with accessibility. 
+Fonts were chosen mainly because of their spacing and simplicity to help with accessibility. Fira Sans Condensed is a sans-serif font which is well spaced and modern, but still looks similar to the typewriter fonts, which again speaks to the conspiracy at the heart of the show.
+![The Fira Sans Condensed font from Carrois Apostrophe via Google Fonts](static/assets/readme/fira-sans-condensed.jpg)
+
+While the font 'Lobster Two' was chosen to add a design flair to the site and to match the promotional material of the show. 
+![The Lobster Two font from Impallari Type via Google Fonts](static/assets/readme/Lobster-two.jpg)
 
