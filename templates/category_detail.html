@@ -11,6 +11,15 @@
         <h1 class="">{{category.title}}</h1>
         <h3 class="mb-3">{{category.description}}</h3>
 </div>
+{% if messages %}
+<ul class="messages text-center">
+    {% for message in messages %}
+        <li {% if message.tag %} class="{{message.tags}}"{% endif %} >
+            {{message}}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div class="row mt-4">
     <div class="col col-3 order-2 sm">
         <div class="border border-light-subtle">
@@ -74,7 +83,7 @@
                 </div>
                 <div class="col col-4 mb-2">
                     <div class="hstack gap-3">
-                        <a href="" class="btn btn-light interaction-count">
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-light interaction-count">
                             <i class="bi bi-chat"></i>
                         </a>
                         <span class="interaction-count">
