@@ -3,11 +3,11 @@
 <h2 class="text-center">
     {{title_and_text}}
 </h2>
-<form class="card w-75 text-bg-secondary" action="" method="post">
+<form class="card w-75 text-bg-secondary" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <div class="row d-flex justify-content-center">
-        <button class="btn btn-light w-25 mb-2" type="submit">{{title_and_text}}</button>
+        <button class="btn btn-light w-75 mb-2" type="submit">{{title_and_text}}</button>
     </div>
 </form>
 {% endblock %}

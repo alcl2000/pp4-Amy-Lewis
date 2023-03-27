@@ -9,56 +9,56 @@
     {% endfor %}
 </ul>
 {% endif %}
-<div class="card text-bg-secondary w-75 mb-3 mt-3">
-    <div class="hstack gap-3">
-        <h3 card="card-title p-1">
-            <a class="text-reset" href="{% url 'post_detail' post.slug %}">
-            .{{post.post_title}}
-            </a>
-        </h3>
-        <h4 class="ms-auto">[{{post.post_author}}]</h4>
-        {% if user.is_staff or request.user == post.post_author%}
-        <div class="dropdown">
-            <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-three-dots"></i>
-            </button>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-            <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
-            </ul> 
+<div class="container">
+    <div class="card text-bg-secondary mb-3 mt-3">
+        <div class="hstack gap-3">
+            <h3>
+                <a class="text-reset" href="{% url 'post_detail' post.slug %}">
+                .{{post.post_title}}
+                </a>
+            </h3>
+            <h4 class="ms-auto">[{{post.post_author}}]</h4>
+            {% if user.is_staff or request.user == post.post_author%}
+            <div class="dropdown">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
+                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                </ul> 
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-    </div>
-    <h6 class="ms-3">{{post.post_category}}</h2>
-    <p class="tag {{post.post_tag.tag_colour}} rounded-pill ">{{post.post_tag}}</p>
-    <p>{{post.post_content}}</p>
-    <hr>
-    <div class=" container ">
-        <div class="container text-center mb-3 hstack gap-3 ">
-            {% if user.is_authenticated %}
-                        <form action="{% url 'like_post' post.slug %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-light" value="{{post.slug}}">
-                                {% if user.id in post.post_likes %}
-                                <i class="bi bi-heart-fill"></i>
-                                {% else %}
-                                <i class="bi bi-heart"></i>
-                                {% endif %}
-                            </button>
-                        </form>
-                        {% else %}
-                        <div class="dropdown" >
-                            <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-heart"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">You must be logged in to like this post!</li>
-                            </ul>
-                        </div>
-                    {% endif %}
-                    <span class="interaction-count">
+        <h6 class="ms-3">{{post.post_category}}</h6>
+        <p class="tag {{post.post_tag.tag_colour}} rounded-pill ">{{post.post_tag}}</p>
+        <p>{{post.post_content}}</p>
+        <hr>
+        <div class=" container ">
+            <div class="container text-center mb-3 hstack gap-3 ">
+                {% if user.is_authenticated %}
+                            <form action="{% url 'like_post' post.slug %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                                    {% if user.id in post.post_likes %}
+                                    <i class="bi bi-heart-fill"></i>
+                                    {% else %}
+                                    <i class="bi bi-heart"></i>
+                                    {% endif %}
+                                </button>
+                            </form>
+                            {% else %}
+                            <div class="dropdown" >
+                                <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">You must be logged in to like this post!</li>
+                                </ul>
+                            </div>
+                        {% endif %}
                         <p>{{post.number_of_likes}}</p>
-                    </span>
+            </div>
         </div>
     </div>
 </div>
@@ -66,7 +66,7 @@
         <!-- comments section -->
         <div class=" card text-center p-2 text-bg-secondary comment-form w-75">
             {% if user.is_authenticated %}
-            <form action="" method="POST">
+            <form method="POST">
                 <h4>Leave a Comment as {{request.user}}:</h4>
                 {% csrf_token %}
                 {{form.as_p}}
@@ -80,7 +80,7 @@
             <h3 class="ms-3">Comments</h3>
             <h5 class="ms-3">sort by:</h5>
             {% for comment in comments %}
-            <div class="card text-bg-secondary w-25 mt-3 mb-3">
+            <div class="card text-bg-secondary container w-75 mt-3 mb-3">
                 <div class="row p-2">
                     <div class="col col-8">
                         <h5>[{{comment.comment_author}}]</h5>
@@ -92,7 +92,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
+                                    <li><a class="dropdown-item delete" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
                                 </ul> 
                             </div>
                         {% endif %}

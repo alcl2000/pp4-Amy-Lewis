@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
- <h1 class="text-center"> Editing Post as : {{request.user}}</h1>
- <form class="card w-75 text-bg-secondary mb-2" action="" method="post">
+ <h2 class="text-center"> Editing Post as : {{request.user}}</h2>
+ <form class="card w-75 text-bg-secondary" method="post">
    {% csrf_token %}
    {{form.as_p}}
-   <div class="row d-flex justify-content-center">
-      <button class="w-25 btn btn-light mb-3" type="submit">Edit Post</button>
+   <div class="row d-flex justify-content-center mb-2">
+      <a class="btn btn-light w-75 mb-2" href="">Cancel</a>
+      <button class="btn btn-light w-75 mb-2" type="submit">Edit Post</button>
    </div>
 </form>
  {% endblock %}
