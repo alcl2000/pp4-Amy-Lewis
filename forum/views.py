@@ -84,15 +84,16 @@ def add_tag(request):
         'form': form,
         'title_and_text': title_and_text,
         }
-    return render(request, 'add_tag.html', context)
     if request.method == "POST":
         form = TagForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Tag Added Successfully!')
+            return redirect(request.META.get('HTTP_REFERER'))
         else:
             form = TagForm()
-    return redirect(request.META.get('HTTP_REFERER'))
+    return render(request, 'add_tag.html', context)
+        
 # Index view
 
 
