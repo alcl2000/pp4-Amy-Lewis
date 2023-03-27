@@ -57,19 +57,30 @@
                 <div class="col col-2"></div>
                 <div class="col col-4">
                     <div class="hstack gap-3">
-                        <form action="{% url 'like_post' post.slug %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-light" value="{{post.slug}}">
-                                {% if user.id in post.post_likes %}
-                                <i class="bi bi-heart-fill"></i>
-                                {% else %}
-                                <i class="bi bi-heart"></i>
-                                {% endif %}
-                            </button>
-                        </form>
-                        <span class="interaction-count">
-                            <p>{{post.number_of_likes}}</p>
-                        </span>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'like_post' post.slug %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                                    {% if user.id in post.post_likes %}
+                                    <i class="bi bi-heart-fill"></i>
+                                    {% else %}
+                                    <i class="bi bi-heart"></i>
+                                    {% endif %}
+                                </button>
+                            </form>
+                            {% else %}
+                            <div class="dropdown" >
+                                <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">You must be logged in to like this post!</li>
+                                </ul>
+                            </div>
+                            <span class="interaction-count">
+                                <p>{{post.number_of_likes}}</p>
+                            </span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col col-4 mb-2">
