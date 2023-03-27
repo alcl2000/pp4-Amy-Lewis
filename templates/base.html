@@ -22,7 +22,7 @@
 <body id="bootstrap-overrides">
 	<nav class="navbar navbar-expand-lg ">
 		<div class="container-fluid">
-				<a class="navbar-brand link-light ms-3" href="#">
+				<a class="navbar-brand link-light ms-3" href="/">
 					<em>.Citizen Detectives</em>
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 					</form>
 					<ul class="navbar-nav mb-2 mb-lg-0">
 						<li class="nav-item ">
-							<a class="nav-link link-light" href="/admin">Account</a>
+							<a class="nav-link link-light" href="{% url 'account_signup' %}">Account</a>
 						</li>
 						<li class="nav-item">
 							{% if user.is_authenticated %}

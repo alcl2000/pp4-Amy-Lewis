@@ -1,5 +1,4 @@
 asgiref==3.6.0
-backports.zoneinfo==0.2.1
 bleach==6.0.0
 certifi==2022.12.7
 cffi==1.15.1
@@ -11,9 +10,11 @@ dj-database-url==1.2.0
 Django==3.2.18
 django-allauth==0.53.1
 django-autoslug==1.9.8
+django-cloudinary-storage==0.3.0
 django-summernote==0.8.20.0
 gunicorn==20.1.0
 idna==3.4
+oauth==1.0.1
 oauthlib==3.2.2
 psycopg2==2.9.5
 pycparser==2.21

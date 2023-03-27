@@ -3,25 +3,28 @@
 <div class="category-bar row">
         <div class="col col-3">
             <h3>
-                <a href="/categories/">
-                    <<= back to categories
+                <a class="text-decoration-none text-reset" href="/categories/">
+                    <<< back to categories
                 </a>
             </h3>
         </div>
         <h1 class="">{{category.title}}</h1>
-        <h3>{{category.description}}</h3>
+        <h3 class="mb-3">{{category.description}}</h3>
 </div>
 <div class="row mt-4">
     <div class="col col-3 order-2 sm">
-        <div>
-            <ul>
-            {% for tag in tags %}
-            <li class="{{tag.tag_colour}}">{{tag.title}}</li>
-            {% endfor %}
-            <li>
-                <a href="/add-tag/">+ Add New Tag</a>
-            </li>
-            </ul>
+        <div class="border border-light-subtle">
+            <span class="m-1 rounded">
+                Tags:
+                <ul class="text-decoration-none">
+                {% for tag in tags %}
+                <li id="tag" class="{{tag.tag_colour}}">{{tag.title}}</li>
+                {% endfor %}
+                <li>
+                    <a class="text-decoration-none text-reset" href="/add-tag/">+ Add New Tag</a>
+                </li>
+                </ul>
+            </span>
         </div>
     </div>
     <div class="col col-8">
@@ -29,7 +32,7 @@
         <div class="card text-bg-secondary w-75 mb-3">
             <div class="hstack gap-3">
                 <h3 card="card-title p-1">
-                    <a href="{% url 'post_detail' post.slug %}">
+                    <a class="text-reset" href="{% url 'post_detail' post.slug %}">
                     .{{post.post_title}}
                     </a>
                 </h3>
@@ -47,7 +50,7 @@
                 {% endif %}
             </div>
             <h6 class="ms-3">{{post.post_category}}</h2>
-            <p class="tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+            <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
             <p>{{post.post_content}}</p>
             <hr>
             <div class="row">

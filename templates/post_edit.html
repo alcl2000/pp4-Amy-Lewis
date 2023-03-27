@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
- <h1> Editing Post as : {{request.user}}</h1>
- <form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button>Cancel</button>
-    <button type="submit">Edit Post</button>
- </form>
-{% endblock %}
+ <h1 class="text-center"> Editing Post as : {{request.user}}</h1>
+ <form class="card w-75 text-bg-secondary mb-2" action="" method="post">
+   {% csrf_token %}
+   {{form.as_p}}
+   <div class="row d-flex justify-content-center">
+      <button class="w-25 btn btn-light mb-3" type="submit">Edit Post</button>
+   </div>
+</form>
+ {% endblock %}

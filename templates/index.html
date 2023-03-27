@@ -10,11 +10,13 @@
 </ul>
 {% endif %}
 <div class="post-form">
-    <h5>Make a post:</h5>
-    <form action="" method="POST" id="make-post" class="form-group">
+    <h5 class="m-2">Make a post:</h5>
+    <form action="" method="POST" id="make-post" class="card text-bg-secondary form-group">
         {% csrf_token %}
         {{form.as_ul}}
-        <button class="btn btn-light"  type="submit">Make Post</button>
+        <div class="row d-flex justify-content-center">
+            <button class="w-25 btn btn-light mt-2 mb-3" type="submit">Make Post</button>
+         </div>
     </form>
 </div>
     <h3>Activity Feed:-</h3>
@@ -22,7 +24,7 @@
     <div class="card text-bg-secondary w-75 mb-3">
         <div class="hstack gap-3">
             <h3 card="card-title p-1">
-                <a href="{% url 'post_detail' post.slug %}">
+                <a class="text-reset " href="{% url 'post_detail' post.slug %}">
                 .{{post.post_title}}
                 </a>
             </h3>
@@ -40,7 +42,7 @@
             {% endif %}
         </div>
         <h6 class="ms-3">{{post.post_category}}</h2>
-        <p class="tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+        <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
         <p>{{post.post_content}}</p>
         <hr>
         <div class="row">
@@ -80,7 +82,7 @@
     <ul>
         {% for category in categories %}
         <li>
-            <a href="{% url 'category_detail' category.category_slug %}">
+            <a href="{% url 'category_detail' category.slug %}">
             {{category.title}}
             </a>
         </li>

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mb2test.herokuapp.com", "citizen-detectives.herokuapp.com" ,"localhost"]
+ALLOWED_HOSTS = ["mb2test.herokuapp.com", "citizen-detectives.herokuapp.com","localhost"]
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'cloudinary_storage',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
     'cloudinary',
     'citizen_detectives',
 ]
@@ -98,10 +98,7 @@ WSGI_APPLICATION = 'forum.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    #  'TEST': {'ENGINE': 'django.db.backends.sqlite3',
-    #           'NAME': os.path.join(BASE_DIR, 'db.sqlite3',),
-    #           'DISABLE_SERVER_SIDE_CURSORS': True}
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -147,7 +144,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
