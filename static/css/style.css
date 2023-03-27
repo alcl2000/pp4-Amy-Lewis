@@ -8,9 +8,11 @@
 #bootstrap-overrides{
     background-color: var(--dark-gray)!important;
     color: aliceblue!important;
+    font-family: 'Fira Sans Condensed', sans-serif;  
 }
 #bootstrap-overrides>nav{
-    background-color: var(--indigo);   
+    background-color: var(--indigo);
+    
 }
 .box{
     max-width:90%;
