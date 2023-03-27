@@ -17,27 +17,25 @@
         <div class="box mb-3">
             <div class="row">
                 <div class="col col-1 order-2">
-                    {% if user.is_authenticated %}
                     <div class="dropdown">
                         <a class="btn btn-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-three-dots"></i>
                         </a>
-                            <ul class="dropdown-menu">
-                            {% if user.is_staff %}
-                            <li><a class="dropdown-item edit" href="/edit/{{category.category_id}}">
-                                Edit '{{category.title}}'?
-                            </a></li>
-                            <li>
-                                <a class="dropdown-item delete" href="/delete/{{category.category_id}}">
-                                Delete '{{category.title}}'?
-                                </a>
-                            </li>
+                            {% if user.is_authenticated %}
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item edit" href="/edit/{{category.category_id}}">
+                                    Edit '{{category.title}}'?
+                                </a></li>
+                                <li>
+                                    <a class="dropdown-item delete" href="/delete/{{category.category_id}}">
+                                    Delete '{{category.title}}'?
+                                    </a>
+                                </li>
                             {% else %}
-                            <li>You must be an admin to edit/delete categories</li>
+                            <li>You must be logged in to edit/delete categories</li>
                             {% endif %}
                             </ul>
                     </div>
-                    {% endif %}
                 </div>
                 <div class="col order-1 col-11 ">
                     <a class="text-decoration-none text-reset" href="{% url 'category_detail' category.slug %}">
