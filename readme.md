@@ -1,5 +1,12 @@
 https://django-autoslug.readthedocs.io/en/latest/ - auto slug field
 
+## Site Development
+
+This site was developed using the Django framework, to help wih development, I created a sitemap so that I could decide which features to implement on which page. This was important for developing templates, so I knew which pages to implement when
+![A site map showing various site pages and their actions](static/assets/readme/sitemap.jpg)
+
+To better understand the mechanics of the database, I built a database schema to show the relations of the various tables and fields.
+![A database schema showing my tables and their relations](static/assets/readme/database-schema.jpg)
 
 ## Design Choices
 
@@ -16,3 +23,4 @@ As this project is intended as an in-universe tie-in to the show yellowjackets, 
 ![Three of the teen yellowjackets on the plane before its impending crash](static/assets/readme/yellowjackets-3.jpg)
 
 Fonts were chosen mainly because of their spacing and simplicity to help with accessibility. 
+
