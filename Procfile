@@ -1,1 +1,1 @@
-web: gunicorn citizen_detectives.wsgi
+web: gunicorn forum.wsgi
