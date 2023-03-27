@@ -30,38 +30,35 @@
         {% endif %}
     </div>
     <h6 class="ms-3">{{post.post_category}}</h2>
-    <p class="tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+    <p class="tag {{post.post_tag.tag_colour}} rounded-pill ">{{post.post_tag}}</p>
     <p>{{post.post_content}}</p>
     <hr>
-    <div class="row">
-        <div class="col col-2 "></div>
-        <div class="col col-4 pb-2">
-            <div class="hstack gap-3">
-                {% if user.is_authenticated %}
-                            <form action="{% url 'like_post' post.slug %}" method="post">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-light" value="{{post.slug}}">
-                                    {% if user.id in post.post_likes %}
-                                    <i class="bi bi-heart-fill"></i>
-                                    {% else %}
-                                    <i class="bi bi-heart"></i>
-                                    {% endif %}
-                                </button>
-                            </form>
-                            {% else %}
-                            <div class="dropdown" >
-                                <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-heart"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item">You must be logged in to like this post!</li>
-                                </ul>
-                            </div>
-                            <span class="interaction-count">
-                                <p>{{post.number_of_likes}}</p>
-                            </span>
-                        {% endif %}
-            </div>
+    <div class=" container ">
+        <div class="container text-center mb-3 hstack gap-3 ">
+            {% if user.is_authenticated %}
+                        <form action="{% url 'like_post' post.slug %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                                {% if user.id in post.post_likes %}
+                                <i class="bi bi-heart-fill"></i>
+                                {% else %}
+                                <i class="bi bi-heart"></i>
+                                {% endif %}
+                            </button>
+                        </form>
+                        {% else %}
+                        <div class="dropdown" >
+                            <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">You must be logged in to like this post!</li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <span class="interaction-count">
+                        <p>{{post.number_of_likes}}</p>
+                    </span>
         </div>
     </div>
 </div>
