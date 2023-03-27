@@ -19,77 +19,96 @@
          </div>
     </form>
 </div>
-    <h3>Activity Feed:-</h3>
-{% for post in posts %}
-    <div class="card text-bg-secondary w-75 mb-3">
-        <div class="hstack gap-3">
-            <h3 card="card-title p-1">
-                <a class="text-reset " href="{% url 'post_detail' post.slug %}">
-                .{{post.post_title}}
-                </a>
-            </h3>
-            <h4 class="ms-auto">[{{post.post_author}}]</h4>
-            {% if user.is_staff or request.user == post.post_author%}
-            <div class="dropdown">
-                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-three-dots"></i>
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
-                </ul> 
-            </div>
-            {% endif %}
-        </div>
-        <h6 class="ms-3">{{post.post_category}}</h2>
-        <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
-        <p>{{post.post_content}}</p>
-        <hr>
-        <div class="row">
-            <div class="col col-2"></div>
-            <div class="col col-4">
-                <div class="hstack gap-3">
-                    <form action="{% url 'like_post' post.slug %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-light" value="{{post.slug}}">
-                            {% if user.id in post.post_likes %}
-                            <i class="bi bi-heart-fill"></i>
-                            {% else %}
-                            <i class="bi bi-heart"></i>
-                            {% endif %}
-                        </button>
-                    </form>
-                    <span class="interaction-count">
-                        <p>{{post.number_of_likes}}</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col col-4 mb-2">
-                <div class="hstack gap-3">
-                    <a href="" class="btn btn-light interaction-count">
-                        <i class="bi bi-chat"></i>
+<h3 class="ms-3">Activity Feed:-</h3>
+<div class="row  mt-4">
+    <div class="col col-6 offset-md-1 col-md-2">
+        <div class="border border-light-subtle">
+            <span class="m-1 rounded">
+                Today's Top Categories:
+                <ul class="text-decoration-none">
+                {% for category in categories %}
+                <li>
+                    <a class="text-reset text-decoration-none" href="{% url 'category_detail' category.slug %}">
+                        {{category.title}}
                     </a>
-                    <span class="interaction-count">
-                        <p>{{comment_count}}</p>
-                    </span>
-                </div>
-            </div>
+                </li>
+                {% endfor %}
+                <li>
+                    <a class="text-decoration-none text-reset" href="/add-category/">+ Add a New Category</a>
+                </li>
+                </ul>
+            </span>
         </div>
     </div>
-{% endfor %}
-<div class="side-box popular-categories">
-    <h4>Today's Popular Categories</h4>
-    <ul>
-        {% for category in categories %}
-        <li>
-            <a href="{% url 'category_detail' category.slug %}">
-            {{category.title}}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    <h4><a href="/categories">
-        See all categories
-    </a></h4>
+    <div class="col col-md-9">
+    {% for post in posts %}
+        <div class="card text-bg-secondary w-75 mb-3">
+            <div class="hstack gap-3">
+                <h3 card="card-title p-1">
+                    <a class="text-reset " href="{% url 'post_detail' post.slug %}">
+                    .{{post.post_title}}
+                    </a>
+                </h3>
+                <h4 class="ms-auto">[{{post.post_author}}]</h4>
+                {% if user.is_staff or request.user == post.post_author%}
+                <div class="dropdown">
+                    <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
+                    <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                    </ul> 
+                </div>
+                {% endif %}
+            </div>
+            <h6 class="ms-3">{{post.post_category}}</h2>
+            <p class="rounded-pill tag {{post.post_tag.tag_colour}}">{{post.post_tag}}</p>
+            <p>{{post.post_content}}</p>
+            <hr>
+            <div class="row">
+                <div class="col col-2"></div>
+                <div class="col col-4">
+                    <div class="hstack gap-3">
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'like_post' post.slug %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-light" value="{{post.slug}}">
+                                    {% if user.id in post.post_likes %}
+                                    <i class="bi bi-heart-fill"></i>
+                                    {% else %}
+                                    <i class="bi bi-heart"></i>
+                                    {% endif %}
+                                </button>
+                            </form>
+                            {% else %}
+                            <div class="dropdown" >
+                                <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">You must be logged in to like this post!</li>
+                                </ul>
+                            </div>
+                            <span class="interaction-count">
+                                <p>{{post.number_of_likes}}</p>
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col col-4 mb-2">
+                    <div class="hstack gap-3">
+                        <a href="" class="btn btn-light interaction-count">
+                            <i class="bi bi-chat"></i>
+                        </a>
+                        <span class="interaction-count">
+                            <p>{{comment_count}}</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 </div>
 {% endblock %}
