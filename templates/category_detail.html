@@ -11,6 +11,15 @@
         <h1 class="">{{category.title}}</h1>
         <h3 class="mb-3">{{category.description}}</h3>
 </div>
+{% if messages %}
+<ul class="messages text-center">
+    {% for message in messages %}
+        <li {% if message.tag %} class="{{message.tags}}"{% endif %} >
+            {{message}}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div class="row mt-4">
     <div class="col col-3 order-2 sm">
         <div class="border border-light-subtle">
