@@ -77,15 +77,15 @@
                                     <li class="dropdown-item">You must be logged in to like this post!</li>
                                 </ul>
                             </div>
-                            <span class="interaction-count">
-                                <p>{{post.number_of_likes}}</p>
-                            </span>
                         {% endif %}
+                        <span class="interaction-count">
+                            <p>{{post.number_of_likes}}</p>
+                        </span>
                     </div>
                 </div>
                 <div class="col col-4 mb-2">
                     <div class="hstack gap-3">
-                        <a href="" class="btn btn-light interaction-count">
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-light interaction-count">
                             <i class="bi bi-chat"></i>
                         </a>
                         <span class="interaction-count">
