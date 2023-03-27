@@ -24,13 +24,17 @@
     <div class="col col-6 offset-md-1 col-md-2">
         <div class="border border-light-subtle">
             <span class="m-1 rounded">
-                Tags:
+                Today's Top Categories:
                 <ul class="text-decoration-none">
-                {% for tag in tags %}
-                <li id="tag" class="{{tag.tag_colour}}">{{tag.title}}</li>
+                {% for category in categories %}
+                <li>
+                    <a class="text-reset text-decoration-none" href="{% url 'category_detail' category.slug %}">
+                        {{category.title}}
+                    </a>
+                </li>
                 {% endfor %}
                 <li>
-                    <a class="text-decoration-none text-reset" href="/add-tag/">+ Add New Tag</a>
+                    <a class="text-decoration-none text-reset" href="/add-category/">+ Add a New Category</a>
                 </li>
                 </ul>
             </span>
