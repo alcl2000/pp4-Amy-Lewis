@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="text-center">
+<h2 class="text-center " style="
+color: var(--yellow);
+font-family: 'Lobster Two';">
     {{title_and_text}}
 </h2>
 <form class="card w-75 text-bg-secondary" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <div class="row d-flex justify-content-center">
+        <p onclick="history.back()" class="btn btn-light w-75 mb-2">Cancel</p>
         <button class="btn btn-light w-75 mb-2" type="submit">{{title_and_text}}</button>
     </div>
 </form>

@@ -19,7 +19,7 @@
     text-align:center;
     padding: 5px;
 }
-.box>h2{
+.fancy-title{
     color: var(--yellow);
     font-family: 'Lobster Two', cursive;
     font-size: 45px;
