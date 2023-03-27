@@ -39,7 +39,9 @@
                 </div>
                 <div class="col order-1 col-11 ">
                     <a class="text-decoration-none text-reset" href="{% url 'category_detail' category.slug %}">
-                        <h2>{{category.title}}</h2>
+                        <h2 style="
+                        color: var(--yellow);
+                        font-family: 'Lobster Two';">{{category.title}}</h2>
                         <h4>{{category.description}}</h4>
                     </a>
                 </div>
@@ -48,7 +50,8 @@
     {% endfor %}
     <h3 class="mb-3 ms-3 left">Or make your own:</h3>
     <div class="box">
-        <h2>
+        <h2  style="color: var(--yellow);
+        font-family: 'Lobster Two';">
             <a class="text-decoration-none text-reset" href="/add-category">+ Add new category</a>
         </h2>
         <h4 class="text-white">Can't find the category you want? Add your own!</h4>

@@ -8,7 +8,9 @@
                 </a>
             </h3>
         </div>
-        <h1 class="">{{category.title}}</h1>
+        <h1 style="
+        color: var(--yellow);
+        font-family: 'Lobster Two';">{{category.title}}</h1>
         <h3 class="mb-3">{{category.description}}</h3>
 </div>
 {% if messages %}
@@ -23,7 +25,7 @@
 <div class="row mt-4">
     <div class="col col-8 ms-5 col-md-2">
         <div class="p-1 mb-3 rounded border border-light-subtle">
-            Tags:
+            <p style="font-family: Lobster Two;">Tags:</p>
             <ul class="text-decoration-none">
             {% for tag in tags %}
             <li class="rounded-pill {{tag.tag_colour}}">{{tag.title}}</li>
