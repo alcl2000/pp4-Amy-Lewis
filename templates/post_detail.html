@@ -25,7 +25,7 @@
                 </button>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                <li><a class="dropdown-item delete-post" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
                 </ul> 
             </div>
             {% endif %}
@@ -91,7 +91,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item delete" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
+                                    <li><a class="dropdown-item delete-comment" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
                                 </ul> 
                             </div>
                         {% endif %}
