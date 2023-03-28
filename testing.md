@@ -20,5 +20,6 @@
 ![The validation pass for urls.py](static/assets/readme/urls.py-validation-cd.jpg)
 - All the custom python files in the forum app pass python validation through CI's own pep8 validator
 ![The validation pass for urls.py](static/assets/readme/urls.py-validation-forum.jpg)
+![The validation pass for views.py](static/assets/readme/views.py-testing.jpg)
 
 ## Manual Testing
