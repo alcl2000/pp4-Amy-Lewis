@@ -13,6 +13,12 @@
  ![A screenshot showing the JS file passing validtion from the JShint Jquery validator](static/assets/readme/jshint-validation.jpg)
 
  ### Python Validation
- 
+- All custom python files in the citizen_detective app pass python validation through CI's own pep8 validator
+![The validation pass for admin.py](static/assets/readme/admin.py-validation.jpg)
+![The validation pass for forms.py](static/assets/readme/forms.py-validation.jpg)
+![The validation pass for models.py](static/assets/readme/models.py-validation.jpg)
+![The validation pass for urls.py](static/assets/readme/urls.py-validation-cd.jpg)
+- All the custom python files in the forum app pass python validation through CI's own pep8 validator
+![The validation pass for urls.py](static/assets/readme/urls.py-validation-forum.jpg)
 
 ## Manual Testing
