@@ -178,3 +178,98 @@
    </td>
   </tr>
 </table>
+
+### Post Detail view 
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Action
+   </td>
+   <td>Actual Action
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>‘Post Like’ function
+   </td>
+   <td>If a user is logged in they are able to interact with the post like form and add their like to a post 
+   </td>
+   <td>When a logged in user clicks the like button, their like is added to a post
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>‘Post Like’ function
+   </td>
+   <td>If a user is not logged in they cannot use the form 
+   </td>
+   <td>If a user is not logged in, a dropdown appears to inform them they need to log in to interact with the post 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Comment form -Logged in 
+   </td>
+   <td>When user is logged in, they are able to leave a comment on the post 
+   </td>
+   <td>When logged in, a user may leave a comment
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Comment form - Not logged in 
+   </td>
+   <td>When logged out, a user cannot access the comment form 
+   </td>
+   <td>When logged out, a user may not try to leave a comment
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Comment form - validation 
+   </td>
+   <td>A user cannot make an empty comment
+   </td>
+   <td>A user may not post a comment without any content
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Comment drop down delete
+   </td>
+   <td>If a user is logged in as staff or the creator of the comment, they are able to delete the comment
+   </td>
+   <td>If the user who create the comment or a staff member is logged in, they are able to delete a comment
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post drop down - edit function
+   </td>
+   <td>If a user is a staff member, or the creator of a post, they are able to edit the post
+   </td>
+   <td>When the user who created the post or a staff member is logged in, they are able to edit a post 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post drop down - delete function
+   </td>
+   <td>If a user is a staff member or the creator of a post, they are able to delete the post
+   </td>
+   <td>If a user is logged in as staff or the creator of a post, they are able to delete the post after pressing a JQuery confirmation
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
