@@ -11,7 +11,7 @@ def create_slug(title):
 
 
 class Category(models.Model):
-    # category id is used to link foreign keys 
+    # category id is used to link foreign keys
     category_id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=25, unique=True)
     # category slug is used to generate urls, auto populates from title
@@ -20,7 +20,7 @@ class Category(models.Model):
 
     class Meta:
         ordering = ['category_id']
-    
+
     def __str__(self):
         return self.title
 
@@ -31,11 +31,11 @@ class Category(models.Model):
         if not self.slug:
             self.slug = create_slug(self.title)
         return super().save(*args, **kwargs)
-    
+
     @classmethod
     def get_default_pk(cls):
         test, created = cls.objects.get_or_create(
-            title='Default Category', 
+            title='Default Category',
             defaults=dict(description='This is a test Category'),
         )
         return test.pk
@@ -46,7 +46,7 @@ class Tag(models.Model):
     title = models.CharField(max_length=30, unique=True)
 
     class ColourOptions(models.TextChoices):
-        # options for the tag colours 
+        # options for the tag colours
         RED = 'RED', ('Red')
         ORANGE = 'ORANGE', ('Orange')
         YELLOW = 'YELLOW', ('Yellow')
@@ -55,18 +55,18 @@ class Tag(models.Model):
         PURPLE = 'PURPLE', ('Purple')
         WHITE = 'WHITE', ('White')
         BLACK = 'BLACK', ('Black')
-    
+
     tag_colour = models.CharField(max_length=6,
                                   choices=ColourOptions.choices,
                                   default=ColourOptions.RED,
                                   )
-    
+
     def __str__(self):
         return self.title
 
     def tag(self):
         return self.tag_colour
-    
+
     @classmethod
     def get_default_pk(cls):
         test_tag, created = cls.objects.get_or_create(
@@ -79,19 +79,19 @@ class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     slug = AutoSlugField(populate_from='post_title')
     # various foriegn keys
-    post_category = models.ForeignKey(Category, 
+    post_category = models.ForeignKey(Category,
                                       to_field='category_id',
                                       on_delete=models.CASCADE,
                                       )
     post_tag = models.ForeignKey(Tag,
-                                 to_field='tag_id', 
+                                 to_field='tag_id',
                                  on_delete=models.SET_DEFAULT,
                                  default=Tag.get_default_pk
                                  )
     post_author = models.ForeignKey(User,
                                     on_delete=models.SET_DEFAULT,
                                     default='Anonymous'
-                                    )    
+                                    )
     # post content
     post_title = models.CharField(max_length=25)
     post_content = models.TextField()
@@ -109,7 +109,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.post_title
-    
+
     def number_of_likes(self):
         return self.post_likes.count()
 
@@ -130,17 +130,17 @@ class Comment(models.Model):
                                            related_name='comment_likes',
                                            blank=True
                                            )
-    
+
     class Meta:
         ordering = ['-date']
-    
+
     def __str__(self):
         return self.text
 
     @property
     def children(self):
         Comment.objects.filter(parent=self).reverse
-    
+
     @property
     def is_parent(self):
         if self.parent is None:
