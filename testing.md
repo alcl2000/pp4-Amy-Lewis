@@ -24,6 +24,61 @@
 
 ## Manual Testing
 
+### Nav Bar
+
+<table>
+  <tr>
+   <td>Feature 
+   </td>
+   <td>Indented action
+   </td>
+   <td>Actual Action
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Site logo
+   </td>
+   <td>When the site logo is clicked, it returns the user to the index page
+   </td>
+   <td>When clicked, the user is redirected to the index page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Account Button
+   </td>
+   <td>When the link is clicked, the user is taken to the sign up page
+   </td>
+   <td>When the button is clicked, the sign up page is returned
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Login button - user logged out
+   </td>
+   <td>If a user is logged out the final link on the nav bar directs them to log in 
+   </td>
+   <td>When a user is not logged in the final link on the nav bar reads ‘log in’ and directs them to the log in page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Logout button - user logged in
+   </td>
+   <td>If a user is logged in, the final navbar link directs them to log out 
+   </td>
+   <td>When a user is not logged in, the final link on the nav bar reads ‘log out’ and directs them to the log out page 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
 ### Index page 
 
 <table>
