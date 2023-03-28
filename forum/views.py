@@ -1,13 +1,13 @@
-from django.shortcuts import (render, 
-                              get_object_or_404, 
-                              HttpResponseRedirect, 
+from django.shortcuts import (render,
+                              get_object_or_404,
+                              HttpResponseRedirect,
                               redirect)
 from django.views import generic, View
 from django.contrib import messages
 from citizen_detectives.models import Category, Post, Tag, Comment
-from citizen_detectives.forms import (CategoryForm, 
-                                      TagForm, 
-                                      PostForm, 
+from citizen_detectives.forms import (CategoryForm,
+                                      TagForm,
+                                      PostForm,
                                       CommentForm)
 
 
@@ -17,7 +17,7 @@ class CategoryList(generic.ListView):
     queryset = Category.objects.order_by('-category_id')
     template_name = "category_list.html"
 
- 
+
 def add_category(request):
     form = CategoryForm()
     title_and_text = "Add Category"
@@ -93,7 +93,6 @@ def add_tag(request):
         else:
             form = TagForm()
     return render(request, 'add_tag.html', context)
-        
 # Index view
 
 
@@ -111,7 +110,7 @@ class IndexView(View):
                    'posts': posts,
                    'categories': categories,
                    }
-        return render(request, "index.html", context) 
+        return render(request, "index.html", context)
 
     def post(self, request, *args, **kwargs):
         posts = Post.objects.all()
@@ -134,12 +133,12 @@ class IndexView(View):
                     form.save()
                     return redirect('home_page')
                 else:
-                    messages.warning(request, 
+                    messages.warning(request,
                                      'You must be logged in to make a post')
                     return redirect('home_page')
         else:
             form = PostForm()
-        return render(request, 'index.html', context) 
+        return render(request, 'index.html', context)
 
 # post detail view
 
@@ -149,7 +148,7 @@ class PostDetail(View):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.filter(post=post)
-        context = {'post': post, 
+        context = {'post': post,
                    'form': CommentForm,
                    'comments': comments
                    }
@@ -159,7 +158,7 @@ class PostDetail(View):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.filter(post=post)
-        context = {'post': post, 
+        context = {'post': post,
                    'form': CommentForm,
                    'comments': comments
                    }
@@ -173,7 +172,7 @@ class PostDetail(View):
                     form.save()
                     return render(request, 'post_detail.html', context)
                 else:
-                    messages.warning(request, 
+                    messages.warning(request,
                                      'You must be logged in to creat a comment'
                                      )
                     return render(request, 'post_detail.html', context)
