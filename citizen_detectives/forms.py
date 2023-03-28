@@ -23,7 +23,7 @@ class TagForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'title': forms.TextInput(attrs={
-                                           'class': 'form-control' 
+                                           'class': 'form-control'
             }),
             'tag_colour': forms.Select(attrs={
                                              'class': 'form-control'
@@ -54,12 +54,10 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['text',]
-
+        fields = ['text', ]
         labels = {
             'text': _('add comment'),
         }
-        
         widgets = {
             'text': forms.TextInput(),
         }
