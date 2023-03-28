@@ -8,9 +8,11 @@
 #bootstrap-overrides{
     background-color: var(--dark-gray)!important;
     color: aliceblue!important;
+    font-family: 'Fira Sans Condensed', sans-serif;  
 }
 #bootstrap-overrides>nav{
-    background-color: var(--indigo);   
+    background-color: var(--indigo);
+    
 }
 .box{
     max-width:90%;
@@ -66,6 +68,27 @@
 }
 .RED{
     background-color: #FE9696;
+}
+.YELLOW{
+    background-color: var(--yellow);
+}
+.ORANGE{
+    background-color: #F2B355;
+}
+.GREEN{
+    background-color: #94CE78;
+}
+.BLUE{
+    background-color: #55A7F2;
+}
+.PURPLE{
+background-color: #9A55F2;
+}
+.WHITE{
+    background-color: #f0f0f0;
+}
+.BLACK{
+    background-color: #333333;
 }
 .category-bar{
     background-color: var(--light-gray);

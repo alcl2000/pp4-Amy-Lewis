@@ -25,7 +25,7 @@
                 </button>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'post_edit' post.slug %}">Edit Post</a></li>
-                <li><a class="dropdown-item" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
+                <li><a class="dropdown-item delete-post" href="{% url 'post_delete' post.slug %}">Delete Post</a></li>
                 </ul> 
             </div>
             {% endif %}
@@ -78,7 +78,6 @@
         </div>
         <div class="mt-3">
             <h3 class="ms-3">Comments</h3>
-            <h5 class="ms-3">sort by:</h5>
             {% for comment in comments %}
             <div class="card text-bg-secondary container w-75 mt-3 mb-3">
                 <div class="row p-2">
@@ -92,7 +91,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item delete" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
+                                    <li><a class="dropdown-item delete-comment" href="{% url 'delete_comment' comment.id %}">Delete Comment</a></li>
                                 </ul> 
                             </div>
                         {% endif %}
