@@ -1,4 +1,12 @@
-https://django-autoslug.readthedocs.io/en/latest/ - auto slug field
+
+
+- [Site Development](#site-development)
+- [Design](#design-choices)
+- [Features](#features)
+- [Technology Used](#technology-used)
+- [Testing Document](/testing.md)
+- [Development](#development)
+    - [Cloning](#cloning)
 
 ## Site Development
 
@@ -28,3 +36,23 @@ Fonts were chosen mainly because of their spacing and simplicity to help with ac
 While the font 'Lobster Two' was chosen to add a design flair to the site and to match the promotional material of the show. 
 ![The Lobster Two font from Impallari Type via Google Fonts](readme/Lobster-two.jpg)
 
+## Features
+
+## Technology Used
+
+* Django - The main framework used to create responsive web pages
+* Jinja 2 - The scripting language used to combine the HTML and Django elements
+* Python - Used to develop the backend of django and communicate with the database
+* ElephantSQL - Used to host the main database of the site
+* JavaScript - Used to add reactive elements to the front-end of the website, mainly using the Jquery framework
+* Bootstrap - A CSS/HTML framework used to help with shorthand styling on across the site
+* HTML - Used to create the basic skeletons of the site
+* CSS - Used for styling across the site
+* Cloudinary - Hosting Static files
+
+## Bug Testing
+
+## Credits
+
+- [Auto Slug Field](https://django-autoslug.readthedocs.io/en/latest/ ) used to create auto slugs on the site
+- []()
