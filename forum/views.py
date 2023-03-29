@@ -89,7 +89,7 @@ def add_tag(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Tag Added Successfully!')
-            return redirect(request.META.get('HTTP_REFERER'))
+            return redirect('/categories')
         else:
             form = TagForm()
     return render(request, 'add_tag.html', context)
