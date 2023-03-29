@@ -328,3 +328,79 @@
    </td>
   </tr>
 </table>
+
+### Category Detail View
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Add Tag button
+   </td>
+   <td>If a user clicks the add tag button they are taken to the add tag page
+   </td>
+   <td>When the add tag button is clicked, the user is redirected to the add tag page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post detail link
+   </td>
+   <td>If a user clicks the link in the post title, they are taken to the post detail view
+   </td>
+   <td>When the title is clicked, the user is taken to the post detail view
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>‘Post Like’ function
+   </td>
+   <td>If a logged out user clicks the post like function, they are asked to log in
+   </td>
+   <td>When a logged out user clicks the button, they are directed to log in to ‘like’ the post
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>‘Post Like’ function
+   </td>
+   <td>If a user is logged in they can submit the form and either add or remove their like from the post 
+   </td>
+   <td>When logged in the form submits and and the user and can either add or remove their like from a post 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>‘Post Comment’ button
+   </td>
+   <td>When a user clicks the post comment button they are taken to the post detail view and the comment section
+   </td>
+   <td>On click, a user is taken to the post detail view and comment section
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Back to category page link
+   </td>
+   <td>When a user clicks the link it should take them to the category list page 
+   </td>
+   <td>When a link is clicked, the user is taken to the category list page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+

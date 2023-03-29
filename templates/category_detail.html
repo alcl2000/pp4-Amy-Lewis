@@ -93,7 +93,7 @@
                     </div>
                     <div class="col col-4 mb-2">
                         <div class="hstack gap-3">
-                            <a href="" class="btn btn-light interaction-count">
+                            <a href="{% url 'post_detail' post.slug %}" class="btn btn-light interaction-count">
                                 <i class="bi bi-chat"></i>
                             </a>
                                 <p>{{comment_count}}</p>
