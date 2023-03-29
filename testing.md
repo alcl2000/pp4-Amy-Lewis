@@ -1,6 +1,7 @@
 # Testing document
 
 -[Validators](#validators)
+- [User story Testing](#user-stories-testing)
 -[Manual Testing](#manual-testing)
 
 ## Validators
@@ -21,6 +22,28 @@
 - All the custom python files in the forum app pass python validation through CI's own pep8 validator
 ![The validation pass for urls.py](readme/urls.py-validation-forum.jpg)
 ![The validation pass for views.py](readme/views.py-testing.jpg)
+
+## User Story Testing
+
+- As a site user I want to be able to view all the categories on the site
+  - I created the category list view to allow users to see all the categories on the site in a list, so they can pick which posts they would like to see 
+- As a user I would like to be able to make a new Category for a new post type
+  - I added Category CRUD functions to allow users to create different categories to sort posts by, the post model also links to the category model
+- As a User I want to be able to sort posts by category so I can see the most relevant posts for my interests
+  - The Category detail view was created to allow users to see the posts which are most relevant to their interests
+- As a user, I want to read posts in an order that make sense
+  - Users see posts on the index page and the category specific views in chronological order
+- As a user I want to be able to CRUD my own posts, when logged in, without having to log into an admin panel
+  - A post making form was added to the index page to allow users to create their own posts; they can edit or delete the posts when logged in through a toggle to the side of the post
+- As a User I want to be able to leave comments on other people's posts 
+  - A comment form was added to the post-detail view, allowing users to leave comments on every single post on the site
+- As a User I want to be able to like and rate posts
+  - Users, when logged in, can add likes to posts to show their appreciation 
+- As a User I want to recieve meaningful feeback when I interact with posts on the site, or run into issues so I understand what's happening during certain processes
+  - Users are given feedback whenever they enter information, both through Jquery and Django's messages framework
+  - This ensures that they understand which actions are being taken and feel as though they are properly interacting with the site
+- 
+
 
 ## Manual Testing
 
