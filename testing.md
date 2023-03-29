@@ -24,7 +24,8 @@
 
 ## Manual Testing
 
-### Nav Bar
+### Nav Bar 
+
 
 <table>
   <tr>
@@ -79,7 +80,10 @@
   </tr>
 </table>
 
-### Index page 
+
+
+### Index
+
 
 <table>
   <tr>
@@ -234,7 +238,10 @@
   </tr>
 </table>
 
-### Post Detail view 
+
+
+### Post detail
+
 
 <table>
   <tr>
@@ -329,7 +336,78 @@
   </tr>
 </table>
 
+
+
+### Post edit
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Post Edit form validation - Title
+   </td>
+   <td>A user cannot submit the post without adding a title and the form will not post 
+   </td>
+   <td>The post does not submit and asks the user to add a title before posting
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post Edit form validation - Tag
+   </td>
+   <td>A user cannot submit the post with the tag field empty 
+   </td>
+   <td>The post does not submit and the user is prompted to add one before posting
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post Edit form validation - Category
+   </td>
+   <td>A user cannot submit the post with the category field empty 
+   </td>
+   <td>The post does not submit without a category and is prompted to select one before posting
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Post Edit form validation - Content
+   </td>
+   <td>A user cannot submit the post with the content field empty
+   </td>
+   <td>The post does not submit with the content field empty and are prompted to add some before posting
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Redirection
+   </td>
+   <td>After the form is correctly entered and submitted, the user is redirected back to the post view they came from 
+   </td>
+   <td>When the correct form is submitted the user is redirected to the post detail view of the post they edited
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
+
+
 ### Category Detail View
+
 
 <table>
   <tr>
@@ -404,3 +482,340 @@
   </tr>
 </table>
 
+
+
+### Category List View
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Category detail link
+   </td>
+   <td>When the link in the card of each category is clicked, it takes the user to the category detail page for that category
+   </td>
+   <td>When the title of the category detail card clicked, the user is taken to a category detail view
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Category Link
+   </td>
+   <td>When the link is clicked, the user is redirected to the add category page
+   </td>
+   <td>On clicking, the user gets redirected to the add tag page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Logged in user, Category drop down 
+   </td>
+   <td>If a user is logged in, they are able to toggle the dropdown 
+   </td>
+   <td>When logged in the dropdown toggles and allows for selection from other menus
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Logged out user, category drop down
+   </td>
+   <td>If a user is not logged in, they are unable to activate the toggle
+   </td>
+   <td>Logged out users cannot use the dropdown
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Logged in User, Category Edit link
+   </td>
+   <td>If the user is logged in, they can use the toggle, he dropdown and access the edit page through the link
+   </td>
+   <td>When a logged in user clicks the ‘edit category’ link on the dropdown they are taken to the edit category page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Logged in User Category Delete Link
+   </td>
+   <td>If the user is logged in, they can toggle the dropdown and select the delete link to delete the post
+   </td>
+   <td>When a logged in user toggles the dropdown and clicks ‘delete category’ they are asked for confirmation before the category gets deleted
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
+
+
+### Add Category Page
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Cancel Button
+   </td>
+   <td>When clicked, the button returns a user back to the page they came from
+   </td>
+   <td>The button returns a user to the correct page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Category Form Validation - Title
+   </td>
+   <td>The user cannot post the form with an empty title element
+   </td>
+   <td>The form will not post without a title and the user is directed to add one
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Category Form Validation - Description
+   </td>
+   <td>A user cannot post the form without a description entered  
+   </td>
+   <td>The form will not post without a description and the user is directed to add one
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Category Form, redirection
+   </td>
+   <td>When the user enters the form correctly they get redirected to the category list view, to see their new category
+   </td>
+   <td>When a satisfactory form is submitted, the user is redirected to the category list form 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
+
+
+### Add Tag
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Cancel Button
+   </td>
+   <td>When clicked, the button returns a user back to the page they came from
+   </td>
+   <td>The button returns a user to the correct page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Tag Form Validation
+   </td>
+   <td>The form cannot be posted without the entry of a valid title
+   </td>
+   <td>The form does not post and the user is prompted to enter a title
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Add Tag Form redirection 
+   </td>
+   <td>When the form is posted, the user is redirected back to the category list page
+   </td>
+   <td>When the form posts, the user is redirected to the category list page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
+
+
+### Logout Page 
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>The log out button
+   </td>
+   <td>When a logged in user clicks the logout button they are signed out and taken to the index page
+   </td>
+   <td>When a logged in user clicks the logout button they are logged out
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
+
+
+
+### Login Page 
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Login Button
+   </td>
+   <td>When a user posts a correctly filled in form, they are redirected to the index page
+   </td>
+   <td>After logging in, a user is redirected to the index page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Login Form- username field validation
+   </td>
+   <td>When a user tries to submit a form without a username, the form does not post and prompts them to correct this
+   </td>
+   <td>If a form is not entered correctly it does not post and the user is asked to resubmit
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Login form password field validation
+   </td>
+   <td>When a user tries to submit a form without a password, the form does not post and prompts them to correct this
+   </td>
+   <td>If a form is not entered correctly it does not post and the user is asked to resubmit
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Admin login button
+   </td>
+   <td>When a user clicks the admin login link, they are redirected to the admin login page
+   </td>
+   <td>When a user clicks the link they are taken to the admin login page
+   </td>
+   <td>Page
+   </td>
+  </tr>
+</table>
+
+
+
+### Sign Up
+
+
+<table>
+  <tr>
+   <td>Feature
+   </td>
+   <td>Intended Outcome
+   </td>
+   <td>Actual Outcome
+   </td>
+   <td>Outcome
+   </td>
+  </tr>
+  <tr>
+   <td>Sign up form validation - Username
+   </td>
+   <td>A user cannot submit a form without entering a valid username 
+   </td>
+   <td>If a username is not entered, the form does not post and the must add a username before posting
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Sign up form validation - Password
+   </td>
+   <td>A user cannot submit a form without entering a valid password 
+   </td>
+   <td>A valid password must be entered before the form submits and the user will be prompted to enter a valid one
+   </td>
+   <td>pass
+   </td>
+  </tr>
+  <tr>
+   <td>Sign up form validation - Password
+   </td>
+   <td>A user cannot submit a form without entering the same password as they previously did
+   </td>
+   <td>If the incorrect password is entered, the user cannot post the form and must reenter their password
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>User redirection
+   </td>
+   <td>When a correctly entered form is submitted they are redirected to the index page 
+   </td>
+   <td>When a valid form is submitted they are redirected to the index page 
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+  <tr>
+   <td>Sign In link
+   </td>
+   <td>When a user clicks the login link, they are redirected to the login page
+   </td>
+   <td>When a user clicks the login link they are redirected to the correct page
+   </td>
+   <td>Pass
+   </td>
+  </tr>
+</table>
