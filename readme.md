@@ -2,11 +2,14 @@
 
 - [Site Development](#site-development)
 - [Design](#design-choices)
+- [Testing Document](/testing.md)
 - [Features](#features)
 - [Technology Used](#technology-used)
-- [Testing Document](/testing.md)
 - [Development](#development)
     - [Cloning](#cloning)
+- [Deployment](#deployment)
+- [Bug Testing](#bug-testing)
+- [Credits](#credits)
 
 ## Site Development
 
@@ -51,6 +54,21 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 * Cloudinary - Hosting Static files
 
 ## Bug Testing
+
+## Development
+
+### Creating a repository
+- Either create an account or log into GitHub.com
+- From your profile click the 'Repositories' section and then click the 'New' button
+- Then, give your repository a unique name and open in your IDE of choice
+
+### Forking
+- From the repository page, click 'fork' at the top
+- The repository will then be in your listed repositories on your profile
+
+### Cloning
+- From the top of the repository page, select the drop-down 'Code' and then pick the 'GitHub CLI' section
+- Copy the command presented, and run it in the command line of your chosen IDE
 
 ## Credits
 
