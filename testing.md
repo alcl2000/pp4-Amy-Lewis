@@ -1,8 +1,8 @@
 # Testing document
 
--[Validators](#validators)
+- [Validators](#validators)
 - [User story Testing](#user-stories-testing)
--[Manual Testing](#manual-testing)
+- [Manual Testing](#manual-testing)
 
 ## Validators
 
