@@ -75,6 +75,35 @@
 - ![](readme/add-category-form.jpg)
 - The form also features a cancel button which returns users to their last page without submitting the form
 
+### Edit Category Form
+- This form serves the edit post functionality, and allows the users to edit their categories without using the admin panel
+- The form is served over the same template, only using the category information as a initial state of the form 
+- ![](readme/edit-category.jpg)
+- Reusing templates allows for the site to maintain cohesion and also usibility 
+
+## Login page
+
+### The sign in page 
+- The sign in page allows users to sign in and interact with the page
+- Once the users log in, they are redirected to the index page
+- At the bottom, there is an admin login link, which allows admins to reach the login page 
+- ![](readme/sign-in-page.jpg)
+
+### The signout page
+- The logout page is accessed from the navbar
+- Once a user logs out, they are redirected to the index page
+- ![](readme/sign-out.jpg)
+- It asks the user for confirmation before they logout so they cannot accidentally logout
+
+### The create account page
+- The create account page has a link to sign in for users that already have an account
+- The login form is laid out for the users in a simple and easy to read way
+- ![](readme/sign-up-page.jpg)
+
+## Post Detail
+
+##
+
 
 ## Site Development
 
