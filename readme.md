@@ -1,4 +1,15 @@
-https://django-autoslug.readthedocs.io/en/latest/ - auto slug field
+
+
+- [Site Development](#site-development)
+- [Design](#design-choices)
+- [Testing Document](/testing.md)
+- [Features](#features)
+- [Technology Used](#technology-used)
+- [Development](#development)
+    - [Cloning](#cloning)
+- [Deployment](#deployment)
+- [Bug Testing](#bug-testing)
+- [Credits](#credits)
 
 ## Site Development
 
@@ -28,3 +39,77 @@ Fonts were chosen mainly because of their spacing and simplicity to help with ac
 While the font 'Lobster Two' was chosen to add a design flair to the site and to match the promotional material of the show. 
 ![The Lobster Two font from Impallari Type via Google Fonts](readme/Lobster-two.jpg)
 
+## Features
+
+## Technology Used
+
+* Django - The main framework used to create responsive web pages
+* Jinja 2 - The scripting language used to combine the HTML and Django elements
+* Python - Used to develop the backend of django and communicate with the database
+* ElephantSQL - Used to host the main database of the site
+* JavaScript - Used to add reactive elements to the front-end of the website, mainly using the Jquery framework
+* Bootstrap - A CSS/HTML framework used to help with shorthand styling on across the site
+* HTML - Used to create the basic skeletons of the site
+* CSS - Used for styling across the site
+* Cloudinary - Hosting Static files
+
+## Bug Testing
+
+### Fixed errors
+
+- Early during development, I accidentally commited and pushed the secret key to github. This is a major security issue and would compromise the safety of the website. To fix this, I changed the secret key and then switched it from the settings.py file, which is commited and hosted on github, to the env.py file, which is stored on my machine
+
+
+## Development
+
+### Creating a repository
+- Either create an account or log into GitHub.com
+- From your profile click the 'Repositories' section and then click the 'New' button
+- Then, give your repository a unique name and open in your IDE of choice
+
+### Forking
+- From the repository page, click 'fork' at the top
+- The repository will then be in your listed repositories on your profile
+
+### Cloning
+- From the top of the repository page, select the drop-down 'Code' and then pick the 'GitHub CLI' section
+- Copy the command presented, and run it in the command line of your chosen IDE
+
+## Deployment
+
+### Deployment to Heroku
+
+- To deploy your project to Heroku
+    - First go to [Heroku](https://www.heroku.com/) and either login or create an account
+    - From your dashboard, click 'Add App'
+    - Go to settings, and scroll down to the section labelled 'Config Vars'
+    - Here, enter the following key pairs
+        - The secret key for your project
+        - The database URL
+        - The Cloudinary URL
+    - Return to the database and link your project to a github repository, you can choose which branch to deploy
+    - You can enable automatic deployments at the bottom of the page, or choose to just deploy the main branch as it is currently
+
+### Linking static files to Cloudinary
+
+- Django does not serve static files to deployed sites, as such static files and assets must be deployed on the cloud
+- To create Cloudinary storage:
+    - Go to [Cloudinary's Website](https://cloudinary.com/) and either create an account or log in
+    - From there, create a 'new product environment'
+    - In the new environment navigate to the 'Programmable meadia tab', this is where the various seecret keys and URLs necessary to host your files are located
+- Once these keys have been obtained, you must now link them to either your django file, if still in development, or into heroku, as detailed above
+
+### Deploying a database to ElephantSQL
+
+- To create my production database, I used ElephantSQL to host it remotely
+    - Head to [Elephant's website](https://www.elephantsql.com/) and either create an account or login
+    - From the dashboard, create a new instance
+    - Select the 'Tiny Turtle' plan
+    - Give the database a name, and tag, if necessary
+    - Select a region local to you to host the database
+    - Confirm the details of your database are correct and select 'create'
+
+## Credits
+
+- [Auto Slug Field](https://django-autoslug.readthedocs.io/en/latest/ ) used to create auto slugs on the site
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
