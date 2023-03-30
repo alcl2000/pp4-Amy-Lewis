@@ -1,15 +1,33 @@
 
-
+- [Features](#features)
 - [Site Development](#site-development)
 - [Design](#design-choices)
 - [Testing Document](/testing.md)
-- [Features](#features)
 - [Technology Used](#technology-used)
 - [Development](#development)
     - [Cloning](#cloning)
 - [Deployment](#deployment)
 - [Bug Testing](#bug-testing)
 - [Credits](#credits)
+
+## Features
+
+### The Nav Bar
+- The nav bar is universal accross all pages, it contains the site logo, which works as a link to the index page, a link to the sign up and log in pages
+- ![A navy blue navbar with white text to the right side](readme/navbar-ss.jpg)
+- The login/Logout link changes text depending on whether the user is logged in
+
+### The Post Form
+- The first feature users see on the site is the post form, which is contained at the top of the site
+- ![The post form, on a light grey background](readme/make-post-form.jpg)
+- The post form is styled using bootstrap and each element requires validation from the HTML
+- The post form allows them to send posts, select the most relevant categories and tags for their posts and make their posts look unique
+
+### Category List
+- On the side of the index page, the site's verious categories are displayed
+- This allows users to see which categories are being interacted with and find which topics are most relevant to them
+- ![A box displaying the categories on the site as well as a link to make more categories](readme/category-list-box.jpg)
+- The links in the box allow users to see the various categories and the category list view
 
 ## Site Development
 
@@ -29,6 +47,7 @@ The website was designed to be a bridge between retro true crime and conspiracy 
 ![](readme/conspiracy-forum-4.jpg)
 
 As this project is intended as an in-universe tie-in to the show yellowjackets, fonts and colours were picked from the show, to keep with the show. The show uses a dark colour palette to represent both the cult and conspiracy storylines within the show, and these were used across the site to help it feel more underground like the earlier sites. 
+![The colour palette picked for the project](readme/colour-pallatte.jpg)
 ![The four main adult yellowjackets in front of a shadowy figure](readme/yellowjackets-1.jpg)
 ![Adult Shauna and Adult Misty in front of a teal background](readme/yellowjackets-2.jpg)
 ![Three of the teen yellowjackets on the plane before its impending crash](readme/yellowjackets-3.jpg)
@@ -39,7 +58,7 @@ Fonts were chosen mainly because of their spacing and simplicity to help with ac
 While the font 'Lobster Two' was chosen to add a design flair to the site and to match the promotional material of the show. 
 ![The Lobster Two font from Impallari Type via Google Fonts](readme/Lobster-two.jpg)
 
-## Features
+
 
 ## Technology Used
 
