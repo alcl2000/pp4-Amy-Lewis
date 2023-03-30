@@ -29,6 +29,28 @@
 - ![A box displaying the categories on the site as well as a link to make more categories](readme/category-list-box.jpg)
 - The links in the box allow users to see the various categories and the category list view
 
+### Post Layout
+- All posts on the index page are displayed in chronological order
+- This makes them easy to access for users and shows them the most up to date information and discussions
+- ![](readme/post-example.jpg)
+- The post displays the title, username, category, tag and post content
+- The post is laid out in a way that make it as easy as possible for users to read, by spacing the information out well and varying the user of headings, subheadings, and text
+
+## Category List View
+
+### The category list view header
+- Each page has a header showing the title and description of the category
+- This helps users navigate the site, as the header also contains a link to take them back to the category list as a whole
+- ![](readme/category-detail-header.jpg)
+- The header also encourages discussion by eleboarating on the topics of discussion at hand
+
+### The Tag list
+- The tag list tis displayed off to the side, and makes it easy for users to see them
+- The tags help show the users what the posts are about and give them a clear view on what the post is about
+- In future these tags could be used to sort posts
+- The colour coding also helps to distinguish posts
+- ![](readme/tag-list.jpg)
+
 ## Site Development
 
 This site was developed using the Django framework, to help wih development, I created a sitemap so that I could decide which features to implement on which page. This was important for developing templates, so I knew which pages to implement when
