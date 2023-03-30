@@ -55,6 +55,11 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 
 ## Bug Testing
 
+### Fixed errors
+
+- Early during development, I accidentally commited and pushed the secret key to github. This is a major security issue and would compromise the safety of the website. To fix this, I changed the secret key and then switched it from the settings.py file, which is commited and hosted on github, to the env.py file, which is stored on my machine
+
+
 ## Development
 
 ### Creating a repository
@@ -70,7 +75,41 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 - From the top of the repository page, select the drop-down 'Code' and then pick the 'GitHub CLI' section
 - Copy the command presented, and run it in the command line of your chosen IDE
 
+## Deployment
+
+### Deployment to Heroku
+
+- To deploy your project to Heroku
+    - First go to [Heroku](https://www.heroku.com/) and either login or create an account
+    - From your dashboard, click 'Add App'
+    - Go to settings, and scroll down to the section labelled 'Config Vars'
+    - Here, enter the following key pairs
+        - The secret key for your project
+        - The database URL
+        - The Cloudinary URL
+    - Return to the database and link your project to a github repository, you can choose which branch to deploy
+    - You can enable automatic deployments at the bottom of the page, or choose to just deploy the main branch as it is currently
+
+### Linking static files to Cloudinary
+
+- Django does not serve static files to deployed sites, as such static files and assets must be deployed on the cloud
+- To create Cloudinary storage:
+    - Go to [Cloudinary's Website](https://cloudinary.com/) and either create an account or log in
+    - From there, create a 'new product environment'
+    - In the new environment navigate to the 'Programmable meadia tab', this is where the various seecret keys and URLs necessary to host your files are located
+- Once these keys have been obtained, you must now link them to either your django file, if still in development, or into heroku, as detailed above
+
+### Deploying a database to ElephantSQL
+
+- To create my production database, I used ElephantSQL to host it remotely
+    - Head to [Elephant's website](https://www.elephantsql.com/) and either create an account or login
+    - From the dashboard, create a new instance
+    - Select the 'Tiny Turtle' plan
+    - Give the database a name, and tag, if necessary
+    - Select a region local to you to host the database
+    - Confirm the details of your database are correct and select 'create'
+
 ## Credits
 
 - [Auto Slug Field](https://django-autoslug.readthedocs.io/en/latest/ ) used to create auto slugs on the site
-- []()
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
