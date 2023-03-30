@@ -36,9 +36,9 @@
 - The post displays the title, username, category, tag and post content
 - The post is laid out in a way that make it as easy as possible for users to read, by spacing the information out well and varying the user of headings, subheadings, and text
 
-## Category List View
+## Category Detail View
 
-### The category list view header
+### The category detail view header
 - Each page has a header showing the title and description of the category
 - This helps users navigate the site, as the header also contains a link to take them back to the category list as a whole
 - ![](readme/category-detail-header.jpg)
@@ -50,6 +50,31 @@
 - In future these tags could be used to sort posts
 - The colour coding also helps to distinguish posts
 - ![](readme/tag-list.jpg)
+
+
+### Add Tag form
+- The add tag form is accessed from the bottom of the tag list 
+- It allows users to create custom tags without using the admin panel 
+- They can choose a title and pick a colour which will be used to mke their posts look unique
+- ![](readme/add-tag-form.jpg)
+- The form also contains a cancel button to return users to the last page they visted without submitting the form
+
+### Category List view
+- The category list view displays all the categories by order of when they were created
+- ![](readme/category-list-view.jpg)
+
+### The Category CRUD functions
+- The category edit and delete functions can be retrieved from the category list via a dropdown 
+- ![](readme/category-crud.jpg)
+- This allows users to edit and delete categories without accessing the admin panel 
+- The dropdown helps keep the tidy clean and allows for resposiveness, as I am not dealing with several elements moving around
+
+### Add Category form
+- The add category form is linked at the bottom of the category link form
+- This allows for the users to add new category without the admin panel 
+- ![](readme/add-category-form.jpg)
+- The form also features a cancel button which returns users to their last page without submitting the form
+
 
 ## Site Development
 
