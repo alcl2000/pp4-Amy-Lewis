@@ -1,6 +1,7 @@
 # The Citizen Detctives Forum
 
 ![](readme/hero-image.jpg)
+[Live Link](https://citizen-detectives.herokuapp.com/)
  
 This forum was created for fans of the show 'Yellowjackets' to access fan theories, it also works as an in-universe tie in, designed to fit the aesthetics of a late 90's internet forum 
 
@@ -13,6 +14,7 @@ This forum was created for fans of the show 'Yellowjackets' to access fan theori
 - [Technology Used](#technology-used)
 - [Development](#development)
     - [Cloning](#cloning)
+    - [forking](#forking)
 - [Deployment](#deployment)
 - [Bug Testing](#bug-testing)
 - [Credits](#credits)
@@ -186,9 +188,11 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 * ElephantSQL - Used to host the main database of the site
 * JavaScript - Used to add reactive elements to the front-end of the website, mainly using the Jquery framework
 * Bootstrap - A CSS/HTML framework used to help with shorthand styling on across the site
+    * Bootrstrap icons were used accross the site as well
 * HTML - Used to create the basic skeletons of the site
 * CSS - Used for styling across the site
 * Cloudinary - Hosting Static files
+* Figma - creation of wireframes
 
 ## Bug Testing
 
@@ -263,3 +267,12 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 
 - [Auto Slug Field](https://django-autoslug.readthedocs.io/en/latest/ ) used to create auto slugs on the site
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [Fira Sans Condensed (font)](https://fonts.google.com/specimen/Fira+Sans+Condensed?category=Sans+Serif,Display,Handwriting&subset=latin&noto.script=Latn&preview.text=African%20Gray&preview.text_type=custom&query=fira)
+- [Lobster Two (font)](https://fonts.google.com/specimen/Lobster+Two?category=Sans+Serif,Display,Handwriting&subset=latin&noto.script=Latn&preview.text=African%20Gray&preview.text_type=custom&query=lobster
+)
+- [Logo created in Pixlr](https://pixlr.com/e/#editor)
+- [Bootstrap](https://getbootstrap.com/) - helped with the majority of the css on the site
+- Text on the site taken from yellowjackets fans
+
+## Acknowledgements
+With thanks to my mentor, Sammy Dartnall for her help and encouragement, the June '22 cohort at code institute for their help in testing, and my friend Sean, who has put up with endless comlpaints 
