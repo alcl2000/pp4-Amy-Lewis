@@ -126,6 +126,13 @@
 - ![](readme/edit-post-form.jpg)
 - The post form does not submit if the data is not valid and the form also contains a cancel button to allow users to leave the page without submitting any data
 
+## Future features
+- Due to the time constraints on this project, I was unable to add a few features that I feel could greatly enhance the uuser experience these were:
+    - The search feature to allow users to find relevant posts using key words
+    - A method of replying to and liking comments, to show their appreciation for others
+    - Other methods of sorting posts
+    - Directly linking Tags and Categories
+
 ## Site Development
 
 This site was developed using the Django framework, to help wih development, I created a sitemap so that I could decide which features to implement on which page. This was important for developing templates, so I knew which pages to implement when
