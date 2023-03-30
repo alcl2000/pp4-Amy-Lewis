@@ -102,8 +102,29 @@
 
 ## Post Detail
 
-##
+### The Posts
+- The posts in the post detail view are laid out the same as accross the site, allowinf for quicker comprehension and site cohesion
 
+### Comments
+- From the post detail view, users are able to make comments and interact with other users
+- The comment form only displays if a user is logged in to try and reduce errors being returned by anonymous user objects
+- ![](readme/comment-form.jpg)
+- The user's username is also displayed to allow them to see who they're interacting as
+
+### Comment Delete
+- Comments can also be deleted by the user who made them or a member of staff
+- This helps if users want to edit for spelling or is a user has left a comment that violates site rules
+- ![](readme/comment-delete-button.jpg)
+
+### Post CRUD
+- From anywhere the post is accessed, the user who made the post or a member of staff can edit or delete the post using a drop down link
+- ![](readme/post-crud-options.jpg)
+- This allows for more control from admins and for users to fix mistakes in their posts
+
+### Post Edit form 
+- While the delete function on a post is done in the dropdown, the edit function takes the user to an edit form so they can manipulate the post 
+- ![](readme/edit-post-form.jpg)
+- The post form does not submit if the data is not valid and the form also contains a cancel button to allow users to leave the page without submitting any data
 
 ## Site Development
 
