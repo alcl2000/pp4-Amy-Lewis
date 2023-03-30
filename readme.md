@@ -59,6 +59,19 @@ While the font 'Lobster Two' was chosen to add a design flair to the site and to
 
 - Early during development, I accidentally commited and pushed the secret key to github. This is a major security issue and would compromise the safety of the website. To fix this, I changed the secret key and then switched it from the settings.py file, which is commited and hosted on github, to the env.py file, which is stored on my machine
 
+- [Solved bug 1](https://github.com/alcl2000/pp4-Amy-Lewis/issues/35) The Category id was initially used to create URLS for the category detail page. This was insufficient data and led to errors in generating the URL
+    - To remedy this, the autoslugfield was added to populate the slug for the Category Detail from the title 
+    - ![The autoslug field for the category slug generation](readme/category-slug.jpg)
+- [Solved bug 2](https://github.com/alcl2000/pp4-Amy-Lewis/issues/41) The Tag model was originally linked directly to specific categories, to try and make tags specific to categories
+    - This was casuing errors in feeding in the category to the add tag form, and as a result the feature was scrapped
+    - Even though this reduced functionality in the websiite and erased some of the orignal features, the scope of this project is still large enough that it did not necessarily require this added functionality
+    - In future, tag forms could be generated on the category list page, to better import the necessary data
+
+### Unsolved errors
+
+- [Unsolved Bug]((https://github.com/alcl2000/pp4-Amy-Lewis/issues/50)) The 'Post Like' icon does not chnage when a user likes a post, this is an issue because it hinders user's feelings of meaningful interactions
+    - To try and remedy this, I added a like counter to the posts to show the users their interactions directly
+    - This has the added benefit of showing users which posts have the most likes, which they can use as a way of sorting posts in future
 
 ## Development
 
