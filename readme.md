@@ -1,4 +1,11 @@
+# The Citizen Detctives Forum
 
+![](readme/hero-image.jpg)
+ 
+This forum was created for fans of the show 'Yellowjackets' to access fan theories, it also works as an in-universe tie in, designed to fit the aesthetics of a late 90's internet forum 
+
+
+- [Wireframes](#wireframes)
 - [Features](#features)
 - [Site Development](#site-development)
 - [Design](#design-choices)
@@ -9,6 +16,13 @@
 - [Deployment](#deployment)
 - [Bug Testing](#bug-testing)
 - [Credits](#credits)
+
+## Wireframes
+
+The full wireframe document can be found on figma [Here](https://www.figma.com/file/A7uh9o653dLZZKvMPuVqvJ/Untitled?node-id=0%3A1&t=nT3tc5M9l2rTlS0A-1)
+
+### Three of the wireframes for the site are sampled below
+![](readme/index-wireframe.jpg) ![](readme/category-view-wireframe.jpg) ![](readme/post-detail-wireframe.jpg)
 
 ## Features
 
